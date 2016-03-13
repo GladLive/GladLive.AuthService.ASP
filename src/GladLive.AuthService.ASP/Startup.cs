@@ -9,26 +9,24 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace GladLive.AuthService.ASP
 {
-    public class Startup
-    {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
+	public class Startup
+	{
+		public void ConfigureServices(IServiceCollection services)
+		{
+			services.AddMvcCore();
+		}
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseIISPlatformHandler();
+		public void Configure(IApplicationBuilder app)
+		{
+			//Comment this out for IIS but we shouldn't need it. We'll be running this on
+			//Linux behind AWS Elastic Load Balancer probably
+			//app.UseIISPlatformHandler();
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
-        }
+			//We only need default routing right now.
+			//We only have a protobuf-net Web API for authentication right now
+			app.UseMvcWithDefaultRoute();
+		}
 
-        // Entry point for the application.
-        public static void Main(string[] args) => WebApplication.Run<Startup>(args);
-    }
+		public static void Main(string[] args) => WebApplication.Run<Startup>(args);
+	}
 }
