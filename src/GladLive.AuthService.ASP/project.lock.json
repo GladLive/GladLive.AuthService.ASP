@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "AspNet.Mvc.Formatters.Protobuf/1.0.27": {
+      "AspNet.Mvc.Formatters.Protobuf/1.0.28": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
@@ -1530,7 +1530,7 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "AspNet.Mvc.Formatters.Protobuf/1.0.27": {
+      "AspNet.Mvc.Formatters.Protobuf/1.0.28": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
@@ -3749,7 +3749,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "AspNet.Mvc.Formatters.Protobuf/1.0.27": {
+      "AspNet.Mvc.Formatters.Protobuf/1.0.28": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
@@ -5279,7 +5279,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "AspNet.Mvc.Formatters.Protobuf/1.0.27": {
+      "AspNet.Mvc.Formatters.Protobuf/1.0.28": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
@@ -6809,7 +6809,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "AspNet.Mvc.Formatters.Protobuf/1.0.27": {
+      "AspNet.Mvc.Formatters.Protobuf/1.0.28": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
@@ -9397,7 +9397,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "AspNet.Mvc.Formatters.Protobuf/1.0.27": {
+      "AspNet.Mvc.Formatters.Protobuf/1.0.28": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
@@ -11986,12 +11986,12 @@
     }
   },
   "libraries": {
-    "AspNet.Mvc.Formatters.Protobuf/1.0.27": {
+    "AspNet.Mvc.Formatters.Protobuf/1.0.28": {
       "type": "package",
-      "sha512": "Ub9C7oHIOQV46q/jcnrHu1Bzm3Ovw3XOT7N358TB7YH9JjMobM/zX1t3oCn0ViFdpRXFVblKbkQ34iuLjEfJ8A==",
+      "sha512": "+wVniH3LtFza5LY3Sgr4uqqq/MRWq0Vu/1pluPBxyTiVMSyRhzX/kW7dc44NnP2kGrZ7yLbBL+h6OeP5G9zZHQ==",
       "files": [
-        "AspNet.Mvc.Formatters.Protobuf.1.0.27.nupkg",
-        "AspNet.Mvc.Formatters.Protobuf.1.0.27.nupkg.sha512",
+        "AspNet.Mvc.Formatters.Protobuf.1.0.28.nupkg",
+        "AspNet.Mvc.Formatters.Protobuf.1.0.28.nupkg.sha512",
         "AspNet.Mvc.Formatters.Protobuf.nuspec",
         "lib/dnxcore50/AspNet.Mvc.Formatters.Protobuf.dll",
         "lib/dnxcore50/AspNet.Mvc.Formatters.Protobuf.xml",
@@ -16978,7 +16978,7 @@
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0-rc1-final",
       "Microsoft.AspNet.Mvc >= 6.0.0-rc1-final",
-      "AspNet.Mvc.Formatters.Protobuf >= 1.0.27"
+      "AspNet.Mvc.Formatters.Protobuf >= 1.0.28"
     ],
     "DNX,Version=v4.5.1": [
       "protobuf-net >= 2.1.0-alpha-1"

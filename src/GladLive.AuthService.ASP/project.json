@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "compilationOptions": {
 	"emitEntryPoint": true
@@ -8,7 +8,7 @@
 		"Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
 		"Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
 		"Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-		"AspNet.Mvc.Formatters.Protobuf": "1.0.27",
+		"AspNet.Mvc.Formatters.Protobuf": "1.0.28"
 	},
 
   "commands": {
