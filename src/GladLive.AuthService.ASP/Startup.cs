@@ -13,7 +13,9 @@ namespace GladLive.AuthService.ASP
 	{
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddMvcCore();
+			//This adds the MVC core features
+			services.AddMvcCore()
+				.AddProtobufNetFormatters(); //add custom ProtobufNet formatters
 		}
 
 		public void Configure(IApplicationBuilder app)
