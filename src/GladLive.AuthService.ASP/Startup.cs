@@ -6,6 +6,7 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Data.Entity;
 
 namespace GladLive.AuthService.ASP
 {
@@ -16,6 +17,21 @@ namespace GladLive.AuthService.ASP
 			//This adds the MVC core features
 			services.AddMvcCore()
 				.AddProtobufNetFormatters(); //add custom ProtobufNet formatters
+
+			services.AddEntityFramework()
+				.AddSqlServer()
+				.AddDbContext<AccountDbContext>(option =>
+				{
+					option.UseSqlServer(@"Server=Glader-PC;Database=ASPTEST;Trusted_Connection=True;");
+				});
+
+			services.AddTransient<AccountDbContext, AccountDbContext>();
+
+			//Repository service for account access
+			services.AddTransient<IAccountRepository, AccountRepository>();
+
+			//Authentication services that deals with auth, decryption and etc
+			services.AddSingleton<IAuthService, AuthenticationService>();
 		}
 
 		public void Configure(IApplicationBuilder app)

@@ -1,40 +1,47 @@
 {
-  "version": "1.0.0-*",
-  "compilationOptions": {
-	"emitEntryPoint": true
-  },
+	"commands": {
+		"web": "Microsoft.AspNet.Server.Kestrel",
+		"ef": "EntityFramework.Commands"
+	},
+
+	"compilationOptions": {
+		"emitEntryPoint": true
+	},
 
 	"dependencies": {
 		"Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
 		"Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
 		"Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-		"AspNet.Mvc.Formatters.Protobuf": "1.0.28"
+		"AspNet.Mvc.Formatters.Protobuf": "1.0.28",
+		"EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+		"EntityFramework.Commands": "7.0.0-rc1-final",
+		"GladLive.Web.Payloads.Authentication": "1.0.3",
+		"GladLive.Security.Common": "1.0.3"
 	},
 
-  "commands": {
-	"web": "Microsoft.AspNet.Server.Kestrel"
-  },
+	"exclude": [
+		"wwwroot",
+		"node_modules"
+	],
 
-  "frameworks": {
-	"dnx451": {
-		"dependencies": {
-			"protobuf-net": "2.1.0-alpha-1"
+	"frameworks": {
+		"dnx451": {
+			"dependencies": {
+				"protobuf-net": "2.1.0-alpha-1"
+			}
+		},
+
+		"dnxcore50": {
+			"dependencies": {
+				"protobuf-net": "2.1.0-alpha-1"
+			}
 		}
 	},
-	
-	"dnxcore50": {
-		"dependencies": {
-			"protobuf-net": "2.1.0-alpha-1"
-		}
-	}
-  },
 
-  "exclude": [
-	"wwwroot",
-	"node_modules"
-  ],
-  "publishExclude": [
-	"**.user",
-	"**.vspscc"
-  ]
+	"publishExclude": [
+		"**.user",
+		"**.vspscc"
+	],
+
+	"version": "1.0.0-*"
 }
