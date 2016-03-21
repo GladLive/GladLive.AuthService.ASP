@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GladLive.Web.Payloads.Authentication;
+using GladLive.Security.Common;
 
 namespace GladLive.AuthService.ASP
 {
@@ -10,19 +11,44 @@ namespace GladLive.AuthService.ASP
 	{
 		private IAccountRepository accountRepository { get; }
 
-		public AuthenticationService(IAccountRepository accountRepo)
+		private ICryptoService decryptoService { get; }
+
+		private IHashingService hashingService { get; }
+
+		public AuthenticationService(IAccountRepository accountRepo, ICryptoService cryptoService, IHashingService hashService)
 		{
 			accountRepository = accountRepo;
+			decryptoService = cryptoService;
+			hashingService = hashService;
 		}
 
 		public AuthResponseCode TryAuthenticate(string userName, byte[] encryptedPassword)
 		{
-			throw new NotImplementedException();
+			return CheckRequestAgainstAccount(accountRepository.GetByAccountName(userName), encryptedPassword);
 		}
 
-		public Task<AuthResponseCode> TryAuthenticateAsync(string userName, byte[] encryptedPassword)
+		private AuthResponseCode CheckRequestAgainstAccount(Account account, byte[] encryptedPassword)
 		{
-			throw new NotImplementedException();
+			if (account == null)
+				return AuthResponseCode.AccountDoesntExist;
+
+			string decryptedPassword = decryptoService.DecryptToString(encryptedPassword);
+
+			if (String.IsNullOrEmpty(decryptedPassword))
+				return AuthResponseCode.AccountDoesntExist;
+
+			//Don't do Task.Run/Factory.StartNew threading to get async in ASP.Net. Read this: http://blog.stephencleary.com/2013/11/taskrun-etiquette-examples-dont-use.html
+			return hashingService.isHashValuesEqual(decryptedPassword, account.PasswordHash) ? AuthResponseCode.Success : AuthResponseCode.AccountDoesntExist;
+		}
+
+		public async Task<AuthResponseCode> TryAuthenticateAsync(string userName, byte[] encryptedPassword)
+		{
+			//Don't do Task.Run/Factory.StartNew threading to get async in ASP.Net. Read this: http://blog.stephencleary.com/2013/11/taskrun-etiquette-examples-dont-use.html
+			//Just call the syncronous
+
+			//Try to query the DB for the account and yield execution till the query completes
+			return CheckRequestAgainstAccount(await accountRepository.GetByAccountNameAsync(userName), encryptedPassword);
+			
 		}
 	}
 }
