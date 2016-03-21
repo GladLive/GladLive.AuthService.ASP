@@ -34,6 +34,12 @@ namespace GladLive.AuthService.ASP
 			hashingService = hashService;
 		}
 
+		/// <summary>
+		/// Tries to authenticate a <paramref name="userName"/> <paramref name="encryptedPassword"/> pair against the service
+		/// </summary>
+		/// <param name="userName">Username of the pair to authenticate with.</param>
+		/// <param name="encryptedPassword">Encrypted password for the pair.</param>
+		/// <returns>Success if authenticated or various other codes describing failure.</returns>
 		public AuthResponseCode TryAuthenticate(string userName, byte[] encryptedPassword)
 		{
 			return CheckRequestAgainstAccount(accountRepository.GetByAccountName(userName), encryptedPassword);
@@ -53,6 +59,12 @@ namespace GladLive.AuthService.ASP
 			return hashingService.isHashValuesEqual(decryptedPassword, account.PasswordHash) ? AuthResponseCode.Success : AuthResponseCode.AccountDoesntExist;
 		}
 
+		/// <summary>
+		/// Asyncronously Tries to authenticate a <paramref name="userName"/> <paramref name="encryptedPassword"/> pair against the service
+		/// </summary>
+		/// <param name="userName">Username of the pair to authenticate with.</param>
+		/// <param name="encryptedPassword">Encrypted password for the pair.</param>
+		/// <returns>Success if authenticated or various other codes describing failure.</returns>
 		public async Task<AuthResponseCode> TryAuthenticateAsync(string userName, byte[] encryptedPassword)
 		{
 			//Don't do Task.Run/Factory.StartNew threading to get async in ASP.Net. Read this: http://blog.stephencleary.com/2013/11/taskrun-etiquette-examples-dont-use.html
