@@ -7,12 +7,24 @@ using GladLive.Security.Common;
 
 namespace GladLive.AuthService.ASP
 {
+	/// <summary>
+	/// Concrete authentication service that services username and encrypted passwords pairs.
+	/// </summary>
 	public class AuthenticationService : IAuthService
 	{
+		/// <summary>
+		/// Account repository providing access to <see cref="Account"/> objects.
+		/// </summary>
 		private IAccountRepository accountRepository { get; }
 
+		/// <summary>
+		/// <see cref="ICryptoService"/> for decrypting incoming encrypted password.
+		/// </summary>
 		private ICryptoService decryptoService { get; }
 
+		/// <summary>
+		/// Hashing service for checking plaintexts passwords against a hash.
+		/// </summary>
 		private IHashingService hashingService { get; }
 
 		public AuthenticationService(IAccountRepository accountRepo, ICryptoService cryptoService, IHashingService hashService)

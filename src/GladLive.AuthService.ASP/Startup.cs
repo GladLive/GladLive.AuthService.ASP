@@ -8,7 +8,6 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Data.Entity;
 using GladLive.Security.Common;
-using GladLive.Security.Common.Cert;
 
 namespace GladLive.AuthService.ASP
 {
