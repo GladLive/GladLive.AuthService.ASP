@@ -33,6 +33,9 @@ namespace GladLive.AuthService.ASP
 
 			//Authentication services that deals with auth, decryption and etc
 			services.AddSingleton<IAuthService, AuthenticationService>();
+
+			//Add BCrypt hashing service for hash verification
+			services.AddSingleton<IHashingService, BCryptHashingService>();
 		}
 
 		public void Configure(IApplicationBuilder app)
