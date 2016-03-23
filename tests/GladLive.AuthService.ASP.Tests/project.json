@@ -5,7 +5,6 @@
 	"tags": [ "" ],
 	"projectUrl": "",
 	"licenseUrl": "",
-
 	"frameworks": {
 		"dnx451": {
 			"dependencies": {
@@ -22,8 +21,10 @@
 			}
 		}
 	},
-
 	"commands": {
 		"test": "xunit.runner.dnx"
+	},
+	"dependencies": {
+		"EntityFramework.InMemory": "7.0.0-rc1-final"
 	}
 }

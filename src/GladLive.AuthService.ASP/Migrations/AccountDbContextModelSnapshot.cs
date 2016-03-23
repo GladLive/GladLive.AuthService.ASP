@@ -7,34 +7,34 @@ using GladLive.AuthService.ASP;
 
 namespace GladLive.AuthService.ASP.Migrations
 {
-    [DbContext(typeof(AccountDbContext))]
-    partial class AccountDbContextModelSnapshot : ModelSnapshot
-    {
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+	[DbContext(typeof(AccountDbContext))]
+	partial class AccountDbContextModelSnapshot : ModelSnapshot
+	{
+		protected override void BuildModel(ModelBuilder modelBuilder)
+		{
+			modelBuilder
+				.HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
+				.HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("GladLive.AuthService.ASP.Account", b =>
-                {
-                    b.Property<int>("AccountID")
-                        .ValueGeneratedOnAdd();
+			modelBuilder.Entity("GladLive.AuthService.ASP.Account", b =>
+				{
+					b.Property<int>("AccountID")
+						.ValueGeneratedOnAdd();
 
-                    b.Property<string>("AccountName")
-                        .IsRequired();
+					b.Property<string>("AccountName")
+						.IsRequired();
 
-                    b.Property<byte>("AccountStanding");
+					b.Property<byte>("AccountStanding");
 
-                    b.Property<string>("CreationIP")
-                        .IsRequired()
-                        .HasAnnotation("MaxLength", 15);
+					b.Property<string>("CreationIP")
+						.IsRequired()
+						.HasAnnotation("MaxLength", 15);
 
-                    b.Property<string>("PasswordHash")
-                        .IsRequired();
+					b.Property<string>("PasswordHash")
+						.IsRequired();
 
-                    b.HasKey("AccountID");
-                });
-        }
-    }
+					b.HasKey("AccountID");
+				});
+		}
+	}
 }

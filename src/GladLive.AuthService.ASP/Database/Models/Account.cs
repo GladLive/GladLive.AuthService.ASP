@@ -19,7 +19,7 @@ namespace GladLive.AuthService.ASP
 		}
 
 		[Key]
-		[ScaffoldColumn(false)]
+		[Required]
 		public int AccountID { get; set; }
 
 		[Required]
