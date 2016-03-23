@@ -50,13 +50,20 @@ namespace GladLive.AuthService.ASP
 			if (account == null)
 				return AuthResponseCode.AccountDoesntExist;
 
+			//Decrypts the incoming chunk of bytes that should be the password
 			string decryptedPassword = decryptoService.DecryptToString(encryptedPassword);
 
 			if (String.IsNullOrEmpty(decryptedPassword))
 				return AuthResponseCode.AccountDoesntExist;
 
-			//Don't do Task.Run/Factory.StartNew threading to get async in ASP.Net. Read this: http://blog.stephencleary.com/2013/11/taskrun-etiquette-examples-dont-use.html
-			return hashingService.isHashValuesEqual(decryptedPassword, account.PasswordHash) ? AuthResponseCode.Success : AuthResponseCode.AccountDoesntExist;
+			switch (account.AccountStanding)
+			{
+				case Account.Standing.Active:
+					//Don't do Task.Run/Factory.StartNew threading to get async in ASP.Net. Read this: http://blog.stephencleary.com/2013/11/taskrun-etiquette-examples-dont-use.html
+					return hashingService.isHashValuesEqual(decryptedPassword, account.PasswordHash) ? AuthResponseCode.Success : AuthResponseCode.AccountDoesntExist;
+				default:
+					return account.AccountStanding.ToResponseCode();
+			}
 		}
 
 		/// <summary>
@@ -71,8 +78,7 @@ namespace GladLive.AuthService.ASP
 			//Just call the syncronous
 
 			//Try to query the DB for the account and yield execution till the query completes
-			return CheckRequestAgainstAccount(await accountRepository.GetByAccountNameAsync(userName), encryptedPassword);
-			
+			return CheckRequestAgainstAccount(await accountRepository.GetByAccountNameAsync(userName), encryptedPassword);	
 		}
 	}
 }
