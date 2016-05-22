@@ -33,6 +33,30 @@ namespace GladLive.AuthService.ASP.Tests
 		}
 
 		[Theory]
+		[InlineData(1)]
+		[InlineData(2)]
+		[InlineData(3)]
+		[InlineData(4)]
+		public void Test_Repository_Indicates_AccountID_That_Should_Be_In_DB_Queries_To_Be_Async(int id)
+		{
+			//arrange
+			using (var context = InMemoryContext())
+			{
+				AccountRepository repo = new AccountRepository(context);
+
+				//act
+				Task<bool> result = repo.ExistsAsync(id);
+
+				result.Wait();
+
+				context.Database.EnsureDeleted();
+
+				//assert
+				Assert.True(result.Result);
+			}
+		}
+
+		[Theory]
 		[InlineData(5)]
 		[InlineData(6)]
 		[InlineData(7)]
@@ -56,6 +80,9 @@ namespace GladLive.AuthService.ASP.Tests
 
 		[Theory]
 		[InlineData("Test1")]
+		[InlineData("Test2")]
+		[InlineData("Test3")]
+		[InlineData("Test4")]
 		public void Test_Repository_Indicates_AccountID_That_Should_Be_In_DB_Queries_To_Be(string name)
 		{
 			//arrange
@@ -70,6 +97,32 @@ namespace GladLive.AuthService.ASP.Tests
 
 				//assert
 				Assert.NotNull(account);
+				Assert.NotNull(account.AccountName == name);
+			}
+		}
+
+		[Theory]
+		[InlineData("Test1")]
+		[InlineData("Test2")]
+		[InlineData("Test3")]
+		[InlineData("Test4")]
+		public void Test_Repository_Indicates_AccountID_That_Should_Be_In_DB_Queries_To_Be_Async(string name)
+		{
+			//arrange
+			using (var context = InMemoryContext())
+			{
+				AccountRepository repo = new AccountRepository(context);
+
+				//act
+				Task<Account> account = repo.GetByAccountNameAsync(name);
+
+				account.Wait();
+
+				context.Database.EnsureDeleted();
+
+				//assert
+				Assert.NotNull(account.Result);
+				Assert.NotNull(account.Result.AccountName == name);
 			}
 		}
 
