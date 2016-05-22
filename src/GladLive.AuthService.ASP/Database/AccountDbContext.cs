@@ -16,18 +16,12 @@ namespace GladLive.AuthService.ASP
 		public AccountDbContext(DbContextOptions options) 
 			: base(options)
 		{
-			//if (!Database.EnsureCreated())
-			//	throw new InvalidOperationException("DB not created.");
+
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<Account>();
-		}
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			optionsBuilder.UseSqlServer(@"Server=Glader-PC;Database=ASPTEST;Trusted_Connection=True;");
 		}
 	}
 }

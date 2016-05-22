@@ -11,8 +11,20 @@ namespace GladLive.AuthService.ASP
 	/// </summary>
 	public interface IAuthService
 	{
+		/// <summary>
+		/// Tries to authenticate a <paramref name="userName"/> <paramref name="encryptedPassword"/> pair against the service
+		/// </summary>
+		/// <param name="userName">Username of the pair to authenticate with.</param>
+		/// <param name="encryptedPassword">Encrypted password for the pair.</param>
+		/// <returns>Success if authenticated or various other codes describing failure.</returns>
 		AuthResponseCode TryAuthenticate(string userName, byte[] encryptedPassword);
 
+		/// <summary>
+		/// Asyncronously Tries to authenticate a <paramref name="userName"/> <paramref name="encryptedPassword"/> pair against the service
+		/// </summary>
+		/// <param name="userName">Username of the pair to authenticate with.</param>
+		/// <param name="encryptedPassword">Encrypted password for the pair.</param>
+		/// <returns>Success if authenticated or various other codes describing failure.</returns>
 		Task<AuthResponseCode> TryAuthenticateAsync(string userName, byte[] encryptedPassword);
 	}
 }

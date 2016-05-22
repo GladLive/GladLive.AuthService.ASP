@@ -7,6 +7,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Data.Entity;
+using GladLive.Security.Common;
 
 namespace GladLive.AuthService.ASP
 {
@@ -32,6 +33,9 @@ namespace GladLive.AuthService.ASP
 
 			//Authentication services that deals with auth, decryption and etc
 			services.AddSingleton<IAuthService, AuthenticationService>();
+
+			//Add BCrypt hashing service for hash verification
+			services.AddSingleton<IHashingService, BCryptHashingService>();
 		}
 
 		public void Configure(IApplicationBuilder app)

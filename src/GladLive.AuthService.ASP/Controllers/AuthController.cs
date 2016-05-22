@@ -29,9 +29,9 @@ namespace GladLive.AuthService.ASP
 				return new BadRequestResult();
 
 			//If the model is valid we can check for authentication
-			//authService
+			AuthResponseCode responseCode = await authService.TryAuthenticateAsync(model.AuthDetails.LoginString, model.AuthDetails.EncryptedPassword);
 
-			return new ProtobufNetObjectResult(null);
+			return new ProtobufNetObjectResult(new AuthResponseModel(responseCode));
 		}
 	}
 }
