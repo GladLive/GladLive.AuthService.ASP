@@ -12,12 +12,11 @@
 		"Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
 		"Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
 		"Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-		"AspNet.Mvc.Formatters.Protobuf": "1.0.28",
 		"EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
 		"EntityFramework.Commands": "7.0.0-rc1-final",
-		"GladLive.Web.Payloads.Authentication": "1.0.3",
 		"BCrypt.Net-Core": "1.0.1",
-		"GladLive.Security.Common": "1.0.5"
+		"Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
+		"Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
 	},
 
 	"exclude": [
@@ -28,14 +27,11 @@
 	"frameworks": {
 		"dnx451": {
 			"dependencies": {
-				"protobuf-net": "2.1.0-alpha-1"
-			}
-		},
-
-		"dnxcore50": {
-			"dependencies": {
-				"protobuf-net": "2.1.0-alpha-1",
-				"System.Net.Utilities": "4.0.0-beta-23516"
+				"GladLive.Security.Common": "1.0.12",
+				"GladLive.Web.Payloads.Authentication": "1.0.7",
+				"GladNet.Serializer.Protobuf": "1.0.4",
+				"AspNet.Mvc.Formatters.Protobuf": "1.0.28",
+				"GladNet.Payload": "1.0.7"
 			}
 		}
 	},
