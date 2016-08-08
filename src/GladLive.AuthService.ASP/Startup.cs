@@ -14,6 +14,8 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using GladNet.ASP.Formatters;
+using GladNet.Serializer.Protobuf;
 
 namespace GladLive.AuthService.ASP
 {
@@ -21,8 +23,8 @@ namespace GladLive.AuthService.ASP
 	{
 		public void ConfigureServices(IServiceCollection services)
 		{
-			//This adds the MVC core features
-			services.AddMvcCore();
+			//This adds the MVC core features and GladNet features
+			services.AddGladNet(new ProtobufnetSerializerStrategy(), new ProtobufnetDeserializerStrategy(), new ProtobufnetRegistry());
 			services.AddLogging();
 
 			//We only have a protobuf-net Web API for authentication right now

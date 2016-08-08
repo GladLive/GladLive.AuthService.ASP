@@ -95,6 +95,71 @@
           "lib/net451/GladLive.Web.Payloads.Authentication.dll": {}
         }
       },
+      "GladNet.ASP.Formatters/1.0.14": {
+        "type": "package",
+        "dependencies": {
+          "GladNet.Message": "2.0.16",
+          "GladNet.Serializer": "2.0.16",
+          "Microsoft.AspNetCore.Mvc": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/GladNet.ASP.Formatters.dll": {}
+        },
+        "runtime": {
+          "lib/net451/GladNet.ASP.Formatters.dll": {}
+        }
+      },
+      "GladNet.ASP.Server/1.0.14": {
+        "type": "package",
+        "dependencies": {
+          "GladNet.ASP.Formatters": "1.0.14",
+          "GladNet.Message": "2.0.16",
+          "Microsoft.AspNetCore.Mvc": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/GladNet.ASP.Server.dll": {}
+        },
+        "runtime": {
+          "lib/net451/GladNet.ASP.Server.dll": {}
+        }
+      },
+      "GladNet.Common/2.0.16": {
+        "type": "package",
+        "dependencies": {
+          "Easyception": "2.0.0"
+        },
+        "compile": {
+          "lib/net35/GladNet.Common.dll": {}
+        },
+        "runtime": {
+          "lib/net35/GladNet.Common.dll": {}
+        }
+      },
+      "GladNet.Encryption/2.0.16": {
+        "type": "package",
+        "compile": {
+          "lib/net35/GladNet.Encryption.dll": {}
+        },
+        "runtime": {
+          "lib/net35/GladNet.Encryption.dll": {}
+        }
+      },
+      "GladNet.Message/2.0.16": {
+        "type": "package",
+        "dependencies": {
+          "Easyception": "2.0.0",
+          "GladNet.Common": "2.0.16",
+          "GladNet.Encryption": "2.0.16",
+          "GladNet.Payload": "2.0.16",
+          "GladNet.Serializer": "2.0.16"
+        },
+        "compile": {
+          "lib/net35/GladNet.Message.dll": {}
+        },
+        "runtime": {
+          "lib/net35/GladNet.Message.dll": {}
+        }
+      },
       "GladNet.Payload/2.0.16": {
         "type": "package",
         "dependencies": {
@@ -1939,6 +2004,8 @@
           "BCrypt.Net-Core": "1.0.1",
           "GladLive.Security.Common": "1.0.12",
           "GladLive.Web.Payloads.Authentication": "1.0.13",
+          "GladNet.ASP.Formatters": "1.0.14",
+          "GladNet.ASP.Server": "1.0.14",
           "GladNet.Payload": "2.0.16",
           "GladNet.Serializer.Protobuf": "1.0.11",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
@@ -2038,6 +2105,61 @@
         "lib/net45/GladLive.Web.Payloads.Authentication.dll",
         "lib/net451/GladLive.Web.Payloads.Authentication.dll",
         "lib/net452/GladLive.Web.Payloads.Authentication.dll"
+      ]
+    },
+    "GladNet.ASP.Formatters/1.0.14": {
+      "sha512": "tD3i/qE/EhdafTNBozy6koRcbWOvPoDt3VpklRZHPkFyWBNbLjlg2BKGkfNLLZCY90FaPQZQR3HuFvK2V7ZqaQ==",
+      "type": "package",
+      "path": "GladNet.ASP.Formatters/1.0.14",
+      "files": [
+        "GladNet.ASP.Formatters.1.0.14.nupkg.sha512",
+        "GladNet.ASP.Formatters.nuspec",
+        "lib/net451/GladNet.ASP.Formatters.dll",
+        "lib/net452/GladNet.ASP.Formatters.dll"
+      ]
+    },
+    "GladNet.ASP.Server/1.0.14": {
+      "sha512": "NZ/kzxnlU3eN97rZ96Dc6iQU+q2AiKknA1qZ1vgOmP1uWWr3tV8nRyI42txubMuXnmn8Q8qf+O4YvMkxqpu8IQ==",
+      "type": "package",
+      "path": "GladNet.ASP.Server/1.0.14",
+      "files": [
+        "GladNet.ASP.Server.1.0.14.nupkg.sha512",
+        "GladNet.ASP.Server.nuspec",
+        "lib/net451/GladNet.ASP.Server.dll",
+        "lib/net452/GladNet.ASP.Server.dll"
+      ]
+    },
+    "GladNet.Common/2.0.16": {
+      "sha512": "s5Ve3g+HQrgk7Qm8n5vwh30XTwne3TVFbOCiQh8irlQwemmrhdETpSLZ1Gu3GMQgqAV4pVV3B3lBfR8K9FdwMg==",
+      "type": "package",
+      "path": "GladNet.Common/2.0.16",
+      "files": [
+        "GladNet.Common.2.0.16.nupkg.sha512",
+        "GladNet.Common.nuspec",
+        "lib/net35/GladNet.Common.XML",
+        "lib/net35/GladNet.Common.dll"
+      ]
+    },
+    "GladNet.Encryption/2.0.16": {
+      "sha512": "4mSdw79QXyx3OXfur8vRG79sHYLyzSIAbKKuOp1zaXuclDQ92zdDLlnwjDLrcbfR2qZfvnqDPXaW+JAbwB17HQ==",
+      "type": "package",
+      "path": "GladNet.Encryption/2.0.16",
+      "files": [
+        "GladNet.Encryption.2.0.16.nupkg.sha512",
+        "GladNet.Encryption.nuspec",
+        "lib/net35/GladNet.Encryption.XML",
+        "lib/net35/GladNet.Encryption.dll"
+      ]
+    },
+    "GladNet.Message/2.0.16": {
+      "sha512": "saaaBZ8+bQ4x/AV1+9rNfvsyrivjOIqnQQuZbe2XR15uiMpfEMd7r8vq67rtd9z7bx+bqVlI1Z9WR2OhLSKqyQ==",
+      "type": "package",
+      "path": "GladNet.Message/2.0.16",
+      "files": [
+        "GladNet.Message.2.0.16.nupkg.sha512",
+        "GladNet.Message.nuspec",
+        "lib/net35/GladNet.Message.XML",
+        "lib/net35/GladNet.Message.dll"
       ]
     },
     "GladNet.Payload/2.0.16": {
@@ -5223,6 +5345,8 @@
   "projectFileDependencyGroups": {
     "": [
       "GladLive.AuthService.ASP >= 1.0.0-*",
+      "GladNet.ASP.Formatters >= 1.0.14",
+      "GladNet.ASP.Server >= 1.0.14",
       "Microsoft.EntityFrameworkCore.InMemory >= 1.0.0"
     ],
     ".NETFramework,Version=v4.5.1": [

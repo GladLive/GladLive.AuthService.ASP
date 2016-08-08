@@ -1,4 +1,4 @@
-﻿{
+{
 	"version": "1.0.0",
 	"description": "GladLive.AuthService.ASP.Tests Class Library",
 	"authors": [ "Glader" ],
@@ -12,8 +12,10 @@
 		}
 	},
 
-	"dependencies": {
-		"Microsoft.EntityFrameworkCore.InMemory": "1.0.0",
-		"GladLive.AuthService.ASP": "1.0.0-*"
-	}
+    "dependencies": {
+        "Microsoft.EntityFrameworkCore.InMemory": "1.0.0",
+        "GladNet.ASP.Server": "1.0.14",
+        "GladNet.ASP.Formatters": "1.0.14",
+        "GladLive.AuthService.ASP": "1.0.0-*"
+    }
 }
