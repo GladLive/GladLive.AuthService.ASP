@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc;
 using GladLive.Web.Payloads.Authentication;
-using AspNet.Mvc.Formatters.Protobuf;
 using ProtoBuf;
 using GladNet.Serializer;
-using GladNet.Common;
 using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace GladLive.AuthService.ASP
 {
@@ -24,6 +23,16 @@ namespace GladLive.AuthService.ASP
 			return "Hello to you";
 		}
 
+		private ILogger classLogger { get; }
+
+		public AuthController(ILogger<AuthController> logger)
+		{
+			if (logger == null)
+				throw new ArgumentNullException(nameof(logger), "Provided logger service is null.");
+
+			classLogger = logger;
+		}
+
 		/// <summary>
 		/// POST event that attempts to authenticate a session based on the <see cref="AuthRequestModel"/>
 		/// details provided to the controller.
@@ -34,7 +43,8 @@ namespace GladLive.AuthService.ASP
 		[HttpPost]
 		public async Task<IActionResult> Authenticate([FromBody] AuthRequest model, [FromServices] IAuthService authService) //authe request model data should be sent in the body of the request
 		{
-			Console.WriteLine("Reached auth method");
+			if(classLogger.IsEnabled(LogLevel.Information))
+				classLogger.LogInformation("Reached auth method");
 
 			//If the model isn't valid we should indicate a bad request result to the caller
 			if (!ModelState.IsValid)
@@ -45,7 +55,8 @@ namespace GladLive.AuthService.ASP
 			AuthResponseCode responseCode = await authService.TryAuthenticateAsync(model.AuthDetails.LoginString, model.AuthDetails.EncryptedPassword);
 
 			//return new ProtobufNetObjectResult(new AuthRequest(IPAddress.Any, new LoginDetails("helo", new byte[0])));
-			return new ProtobufNetObjectResult(new AuthResponse(responseCode));
+			//return new ProtobufNetObjectResult(new AuthResponse(responseCode));
+			return new BadRequestResult();
 		}
 	}
 }
