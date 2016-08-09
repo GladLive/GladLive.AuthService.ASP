@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Data.Entity;
-using GladLive.Security.Common;
+﻿using GladLive.Security.Common;
 using GladLive.Web.Payloads.Authentication;
-using System.Security.Cryptography;
-using GladNet.Common;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Internal;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Common.Logging;
-using Microsoft.AspNet.Mvc;
-using System.Net;
-using Microsoft.AspNet.Mvc.ModelBinding.Metadata;
-using Microsoft.AspNet.Mvc.ModelBinding.Validation;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
+using GladNet.ASP.Formatters;
+using GladNet.Serializer.Protobuf;
 
 namespace GladLive.AuthService.ASP
 {
@@ -24,21 +23,20 @@ namespace GladLive.AuthService.ASP
 	{
 		public void ConfigureServices(IServiceCollection services)
 		{
-			//This adds the MVC core features
-			services.AddMvcCore()
-				.AddProtobufNetFormatters(); //add custom ProtobufNet formatters
+			//This adds the MVC core features and GladNet features
+			services.AddGladNet(new ProtobufnetSerializerStrategy(), new ProtobufnetDeserializerStrategy(), new ProtobufnetRegistry());
+			services.AddLogging();
 
 			//We only have a protobuf-net Web API for authentication right now
 
 			//This is required due to fault in ASP involving model validation with IPAddress
 			//Reference: https://github.com/aspnet/Mvc/issues/4571 for more information
-			services.Configure<MvcOptions>(c =>
+			/*services.Configure<MvcOptions>(c =>
 			{
-				c.ValidationExcludeFilters.Add(new DefaultTypeBasedExcludeFilter(typeof(IPAddress)));
-			});
+				c.ValueProviderFactories.Add(new DefaultTypeBasedExcludeFilter(typeof(IPAddress)));
+			});*/
 
-			services.AddEntityFramework()
-				.AddSqlServer()
+			services.AddEntityFrameworkSqlServer()
 				.AddDbContext<AccountDbContext>(option =>
 				{
 					option.UseSqlServer(@"Server=Glader-PC;Database=ASPTEST;Trusted_Connection=True;");
@@ -66,9 +64,8 @@ namespace GladLive.AuthService.ASP
 			//Comment this out for IIS but we shouldn't need it. We'll be running this on
 			//Linux behind AWS Elastic Load Balancer probably
 			//app.UseIISPlatformHandler();
-			
-			loggerFactory.MinimumLevel = Microsoft.Extensions.Logging.LogLevel.Information;
-			loggerFactory.AddConsole();
+
+			loggerFactory.AddConsole(LogLevel.Information);
 			app.UseMvc();
 
 			//We have to register the payload types
@@ -78,6 +75,12 @@ namespace GladLive.AuthService.ASP
 			new GladNet.Serializer.Protobuf.ProtobufnetRegistry().Register(typeof(AuthResponse));
 		}
 
-		public static void Main(string[] args) => WebApplication.Run<Startup>(args);
+		//This changed in RTM. Fluently build and setup the web hosting
+		public static void Main(string[] args) => new WebHostBuilder()
+			.UseKestrel()
+			.UseContentRoot(Directory.GetCurrentDirectory())
+			.UseStartup<Startup>()
+			.Build()
+			.Run();
 	}
 }

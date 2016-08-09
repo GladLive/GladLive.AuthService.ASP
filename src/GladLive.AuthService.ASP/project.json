@@ -1,22 +1,27 @@
 {
-	"commands": {
-		"web": "Microsoft.AspNet.Server.Kestrel",
-		"ef": "EntityFramework.Commands"
-	},
-
-	"compilationOptions": {
+	"buildOptions": {
 		"emitEntryPoint": true
 	},
 
 	"dependencies": {
-		"Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-		"Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final",
-		"Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-		"EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
-		"EntityFramework.Commands": "7.0.0-rc1-final",
+		"Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+		"Microsoft.AspNetCore.Mvc": "1.0.0",
+		"Microsoft.EntityFrameworkCore": "1.0.0",
+		"Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final",
 		"BCrypt.Net-Core": "1.0.1",
-		"Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
-		"Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
+		"Microsoft.AspNetCore.Diagnostics": "1.0.0",
+		"Microsoft.Extensions.Logging.Console": "1.0.0",
+		"Microsoft.EntityFrameworkCore.SqlServer": "1.0.0",
+		"GladLive.Web.Payloads.Authentication": "1.0.13",
+		"GladNet.ASP.Formatters": "1.0.16",
+		"GladLive.Security.Common": "1.0.12",
+		"GladNet.Serializer.Protobuf": "1.0.11",
+		"GladNet.Payload": "2.0.16",
+		"GladNet.ASP.Server": "1.0.16"
+	},
+
+	"commands": {
+		"web": "Microsoft.AspNetCore.Server.Kestrel"
 	},
 
 	"exclude": [
@@ -25,13 +30,12 @@
 	],
 
 	"frameworks": {
-		"dnx451": {
+		"net451": {
 			"dependencies": {
-				"GladLive.Security.Common": "1.0.12",
-				"GladLive.Web.Payloads.Authentication": "1.0.7",
-				"GladNet.Serializer.Protobuf": "1.0.4",
-				"AspNet.Mvc.Formatters.Protobuf": "1.0.28",
-				"GladNet.Payload": "1.0.7"
+			}
+		},
+		"net452": {
+			"dependencies": {
 			}
 		}
 	},

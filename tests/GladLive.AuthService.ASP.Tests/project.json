@@ -1,23 +1,21 @@
-﻿{
-	"version": "1.0.0-*",
+{
+	"version": "1.0.0",
 	"description": "GladLive.AuthService.ASP.Tests Class Library",
 	"authors": [ "Glader" ],
-	"tags": [ "" ],
-	"projectUrl": "",
-	"licenseUrl": "",
+	"testRunner": "xunit",
 	"frameworks": {
-		"dnx451": {
+		"net451": {
 			"dependencies": {
-				"xunit.runner.dnx": "2.1.0-rc1-build204",
-				"xunit": "2.1.0",
-				"GladLive.AuthService.ASP": "1.0.0-*"
+				"dotnet-test-xunit": "2.2.0-preview2-build1029",
+				"xunit": "2.2.0-beta2-build3300"
 			}
 		}
 	},
-	"commands": {
-		"test": "xunit.runner.dnx"
-	},
-	"dependencies": {
-		"EntityFramework.InMemory": "7.0.0-rc1-final"
-	}
+
+    "dependencies": {
+        "Microsoft.EntityFrameworkCore.InMemory": "1.0.0",
+        "GladNet.ASP.Server": "1.0.16",
+        "GladNet.ASP.Formatters": "1.0.16",
+        "GladLive.AuthService.ASP": "1.0.0-*"
+    }
 }
