@@ -16,6 +16,10 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using GladNet.ASP.Formatters;
 using GladNet.Serializer.Protobuf;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Identity;
+using OpenIddict;
 
 namespace GladLive.AuthService.ASP
 {
@@ -27,36 +31,40 @@ namespace GladLive.AuthService.ASP
 			services.AddGladNet(new ProtobufnetSerializerStrategy(), new ProtobufnetDeserializerStrategy(), new ProtobufnetRegistry());
 			services.AddLogging();
 
-			//We only have a protobuf-net Web API for authentication right now
-
-			//This is required due to fault in ASP involving model validation with IPAddress
-			//Reference: https://github.com/aspnet/Mvc/issues/4571 for more information
-			/*services.Configure<MvcOptions>(c =>
-			{
-				c.ValueProviderFactories.Add(new DefaultTypeBasedExcludeFilter(typeof(IPAddress)));
-			});*/
-
 			services.AddEntityFrameworkSqlServer()
-				.AddDbContext<AccountDbContext>(option =>
+				.AddDbContext<GladLiveApplicationDbContext>(option =>
 				{
 					option.UseSqlServer(@"Server=Glader-PC;Database=ASPTEST;Trusted_Connection=True;");
+					//option.UseMemoryCache(new MemoryCache(new MemoryCacheOptions()));
 				});
 
-			services.AddTransient<AccountDbContext, AccountDbContext>();
+			// Register the OpenIddict services, including the default Entity Framework stores.
+			services.AddOpenIddict<GladLiveApplicationUser, IdentityRole, GladLiveApplicationDbContext>();
 
-			//Repository service for account access
-			services.AddTransient<IAccountRepository, AccountRepository>();
+			//We only have a protobuf-net Web API for authentication right now
 
-			//Authentication services that deals with auth, decryption and etc
-			services.AddSingleton<IAuthService, AuthenticationService>();
+			//Below is the OpenIddict registration
+			//This is the recommended setup from the official Github: https://github.com/openiddict/openiddict-core
+			services.AddIdentity<GladLiveApplicationUser, IdentityRole>()
+				.AddEntityFrameworkStores<GladLiveApplicationDbContext>()
+				.AddUserManager<GladLiveOpenIddictManager>()
+				.AddDefaultTokenProviders();
 
-			services.AddSingleton<ICryptoService, RSACryptoProviderAdapter>(x =>
-				{
-					return new RSACryptoProviderAdapter(new RSACryptoServiceProvider());
-				});
+			services.AddOpenIddict<GladLiveApplicationUser, GladLiveApplicationDbContext>()
+				.EnableTokenEndpoint("/api/AuthRequest") // Enable the token endpoint (required to use the password flow).
+				.AllowPasswordFlow() // Allow client applications to use the grant_type=password flow.
+				.AllowRefreshTokenFlow()
+				.UseJsonWebTokens()
 
-			//Add BCrypt hashing service for hash verification
-			services.AddSingleton<IHashingService, BCryptHashingService>();
+#if DEBUG || DEV
+				.DisableHttpsRequirement()
+				.AddEphemeralSigningKey();
+#else
+			;
+#endif			
+			services.AddTransient<GladLiveApplicationDbContext, GladLiveApplicationDbContext>();
+
+			services.AddScoped<OpenIddictUserManager<GladLiveApplicationUser>, GladLiveOpenIddictManager>();
 		}
 
 		public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
@@ -66,6 +74,23 @@ namespace GladLive.AuthService.ASP
 			//app.UseIISPlatformHandler();
 
 			loggerFactory.AddConsole(LogLevel.Information);
+
+
+			//This JWT example indicates we shouldn't use Identity: https://github.com/capesean/openiddict-test/blob/master/src/openiddict-test/Startup.cs
+			//app.UseIdentity();
+			//app.UseOAuthValidation();
+			app.UseOpenIddict();
+
+			// use jwt bearer authentication
+			app.UseJwtBearerAuthentication(new JwtBearerOptions
+			{
+				AutomaticAuthenticate = true,
+				AutomaticChallenge = true,
+				RequireHttpsMetadata = false,
+				Audience = @"http://localhost:5000/",
+				Authority = @"http://localhost:5000/"
+			});
+
 			app.UseMvc();
 
 			//We have to register the payload types
