@@ -14,8 +14,8 @@
 
     "dependencies": {
         "Microsoft.EntityFrameworkCore.InMemory": "1.0.0",
-        "GladNet.ASP.Server": "1.0.14",
-        "GladNet.ASP.Formatters": "1.0.14",
+        "GladNet.ASP.Server": "1.0.16",
+        "GladNet.ASP.Formatters": "1.0.16",
         "GladLive.AuthService.ASP": "1.0.0-*"
     }
 }

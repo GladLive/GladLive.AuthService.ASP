@@ -64,7 +64,7 @@
           "lib/net451/GladLive.Web.Payloads.Authentication.dll": {}
         }
       },
-      "GladNet.ASP.Formatters/1.0.14": {
+      "GladNet.ASP.Formatters/1.0.16": {
         "type": "package",
         "dependencies": {
           "GladNet.Message": "2.0.16",
@@ -78,10 +78,10 @@
           "lib/net451/GladNet.ASP.Formatters.dll": {}
         }
       },
-      "GladNet.ASP.Server/1.0.14": {
+      "GladNet.ASP.Server/1.0.16": {
         "type": "package",
         "dependencies": {
-          "GladNet.ASP.Formatters": "1.0.14",
+          "GladNet.ASP.Formatters": "1.0.16",
           "GladNet.Message": "2.0.16",
           "Microsoft.AspNetCore.Mvc": "1.0.0"
         },
@@ -1773,23 +1773,23 @@
         "lib/net452/GladLive.Web.Payloads.Authentication.dll"
       ]
     },
-    "GladNet.ASP.Formatters/1.0.14": {
-      "sha512": "tD3i/qE/EhdafTNBozy6koRcbWOvPoDt3VpklRZHPkFyWBNbLjlg2BKGkfNLLZCY90FaPQZQR3HuFvK2V7ZqaQ==",
+    "GladNet.ASP.Formatters/1.0.16": {
+      "sha512": "+JHzsxomiBdbEF+bLChlerodO56MyW+6bxkj5rwsHwVE25PogcKrkuJeqcvUSHE/dabRRXZkhuOryfQhbCxn6g==",
       "type": "package",
-      "path": "GladNet.ASP.Formatters/1.0.14",
+      "path": "GladNet.ASP.Formatters/1.0.16",
       "files": [
-        "GladNet.ASP.Formatters.1.0.14.nupkg.sha512",
+        "GladNet.ASP.Formatters.1.0.16.nupkg.sha512",
         "GladNet.ASP.Formatters.nuspec",
         "lib/net451/GladNet.ASP.Formatters.dll",
         "lib/net452/GladNet.ASP.Formatters.dll"
       ]
     },
-    "GladNet.ASP.Server/1.0.14": {
-      "sha512": "NZ/kzxnlU3eN97rZ96Dc6iQU+q2AiKknA1qZ1vgOmP1uWWr3tV8nRyI42txubMuXnmn8Q8qf+O4YvMkxqpu8IQ==",
+    "GladNet.ASP.Server/1.0.16": {
+      "sha512": "+FHSJHdBXCm9R5REgXEZH5MYgHOLpCXFiZnr6fovvhx0K8cbzuzwcqaXab50vvRr2DjaNaQMQakR2pIaOxj0Lg==",
       "type": "package",
-      "path": "GladNet.ASP.Server/1.0.14",
+      "path": "GladNet.ASP.Server/1.0.16",
       "files": [
-        "GladNet.ASP.Server.1.0.14.nupkg.sha512",
+        "GladNet.ASP.Server.1.0.16.nupkg.sha512",
         "GladNet.ASP.Server.nuspec",
         "lib/net451/GladNet.ASP.Server.dll",
         "lib/net452/GladNet.ASP.Server.dll"
@@ -4738,8 +4738,8 @@
     "": [
       "BCrypt.Net-Core >= 1.0.1",
       "GladLive.Web.Payloads.Authentication >= 1.0.13",
-      "GladNet.ASP.Formatters >= 1.0.14",
-      "GladNet.ASP.Server >= 1.0.14",
+      "GladNet.ASP.Formatters >= 1.0.16",
+      "GladNet.ASP.Server >= 1.0.16",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.0",
       "Microsoft.AspNetCore.Server.Kestrel >= 1.0.0",
