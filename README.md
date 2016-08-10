@@ -6,6 +6,7 @@ GladLive.AuthService.ASP is a web scalable ASP core authentication webservice/we
   - Services Authentication requests for the GladLive distributed network
   - Vertically and horizontally scalable
   - Issues JWT tokens to authenticated users
+  - Supports HTTPS and signing JWT's with x509 cert
   - Web and cloud ready
 
 ## GladLive Services
