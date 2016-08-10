@@ -22,6 +22,14 @@ To use this project you'll first need a couple of things:
   - Dotnet SDK
   - Add Nuget Feed https://www.myget.org/F/hellokitty/api/v2 in VS (Options -> NuGet -> Package Sources)
 
+## How To Use
+
+Start the application and connect to the {baseurl}/api/AuthenticationRequest endpoint to be issued a JWT authorization response. To authenticate you must send username, password and grant_type password in the request body of a POST with a url encoded content type.
+
+For example: username=TestUsername&password=Test123&grant_type=password
+
+The server will issue a JWT token in the response body or error information.
+
 ## Builds
 
 (CD will be setup in the future; will not be available on NuGet)
