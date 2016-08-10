@@ -25,6 +25,7 @@ namespace GladLive.AuthService.ASP
 		{
 			//This adds the MVC core features and GladNet features
 			services.AddLogging();
+			services.AddMvc();
 
 			services.AddEntityFrameworkSqlServer()
 				.AddDbContext<GladLiveApplicationDbContext>(option =>
