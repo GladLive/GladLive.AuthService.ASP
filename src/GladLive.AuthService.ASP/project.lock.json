@@ -15,7 +15,7 @@
           "lib/net451/AspNet.Security.OAuth.Validation.dll": {}
         }
       },
-      "AspNet.Security.OpenIdConnect.Extensions/1.0.0-beta7-0946": {
+      "AspNet.Security.OpenIdConnect.Extensions/1.0.0-beta7-0949": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication": "1.0.0",
@@ -28,10 +28,10 @@
           "lib/net451/AspNet.Security.OpenIdConnect.Extensions.dll": {}
         }
       },
-      "AspNet.Security.OpenIdConnect.Server/1.0.0-beta7-0946": {
+      "AspNet.Security.OpenIdConnect.Server/1.0.0-beta7-0949": {
         "type": "package",
         "dependencies": {
-          "AspNet.Security.OpenIdConnect.Extensions": "1.0.0-beta7-0946",
+          "AspNet.Security.OpenIdConnect.Extensions": "1.0.0-beta7-0949",
           "Microsoft.AspNetCore.Authentication": "1.0.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "2.0.0"
         },
@@ -40,21 +40,6 @@
         },
         "runtime": {
           "lib/net451/AspNet.Security.OpenIdConnect.Server.dll": {}
-        }
-      },
-      "BCrypt.Net-Core/1.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "System",
-          "System.Core",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/net451/BCrypt.Net-Core.dll": {}
-        },
-        "runtime": {
-          "lib/net451/BCrypt.Net-Core.dll": {}
         }
       },
       "CryptoHelper/2.0.0": {
@@ -67,157 +52,6 @@
         },
         "runtime": {
           "lib/net451/CryptoHelper.dll": {}
-        }
-      },
-      "Easyception/2.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net35/Easyception.dll": {}
-        },
-        "runtime": {
-          "lib/net35/Easyception.dll": {}
-        }
-      },
-      "fasterflect/2.1.3": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Fasterflect.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Fasterflect.dll": {}
-        }
-      },
-      "GladLive.Security.Common/1.0.12": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "System",
-          "System.Core",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/net45/GladLive.Security.Common.dll": {}
-        },
-        "runtime": {
-          "lib/net45/GladLive.Security.Common.dll": {}
-        }
-      },
-      "GladLive.Web.Payloads.Authentication/1.0.13": {
-        "type": "package",
-        "dependencies": {
-          "GladNet.Payload": "2.0.16",
-          "GladNet.Serializer": "2.0.16"
-        },
-        "compile": {
-          "lib/net451/GladLive.Web.Payloads.Authentication.dll": {}
-        },
-        "runtime": {
-          "lib/net451/GladLive.Web.Payloads.Authentication.dll": {}
-        }
-      },
-      "GladNet.ASP.Formatters/1.0.16": {
-        "type": "package",
-        "dependencies": {
-          "GladNet.Message": "2.0.16",
-          "GladNet.Serializer": "2.0.16",
-          "Microsoft.AspNetCore.Mvc": "1.0.0"
-        },
-        "compile": {
-          "lib/net451/GladNet.ASP.Formatters.dll": {}
-        },
-        "runtime": {
-          "lib/net451/GladNet.ASP.Formatters.dll": {}
-        }
-      },
-      "GladNet.ASP.Server/1.0.16": {
-        "type": "package",
-        "dependencies": {
-          "GladNet.ASP.Formatters": "1.0.16",
-          "GladNet.Message": "2.0.16",
-          "Microsoft.AspNetCore.Mvc": "1.0.0"
-        },
-        "compile": {
-          "lib/net451/GladNet.ASP.Server.dll": {}
-        },
-        "runtime": {
-          "lib/net451/GladNet.ASP.Server.dll": {}
-        }
-      },
-      "GladNet.Common/2.0.16": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0"
-        },
-        "compile": {
-          "lib/net35/GladNet.Common.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Common.dll": {}
-        }
-      },
-      "GladNet.Encryption/2.0.16": {
-        "type": "package",
-        "compile": {
-          "lib/net35/GladNet.Encryption.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Encryption.dll": {}
-        }
-      },
-      "GladNet.Message/2.0.16": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0",
-          "GladNet.Common": "2.0.16",
-          "GladNet.Encryption": "2.0.16",
-          "GladNet.Payload": "2.0.16",
-          "GladNet.Serializer": "2.0.16"
-        },
-        "compile": {
-          "lib/net35/GladNet.Message.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Message.dll": {}
-        }
-      },
-      "GladNet.Payload/2.0.16": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0",
-          "GladNet.Serializer": "2.0.16"
-        },
-        "compile": {
-          "lib/net35/GladNet.Payload.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Payload.dll": {}
-        }
-      },
-      "GladNet.Serializer/2.0.16": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0"
-        },
-        "compile": {
-          "lib/net35/GladNet.Serializer.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Serializer.dll": {}
-        }
-      },
-      "GladNet.Serializer.Protobuf/1.0.11": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0",
-          "GladNet.Serializer": "1.0.0",
-          "fasterflect": "2.1.3",
-          "protobuf-net": "2.0.0.668"
-        },
-        "compile": {
-          "lib/net35/GladNet.Serializer.Protobuf.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Serializer.Protobuf.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -1499,10 +1333,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "OpenIddict/1.0.0-alpha2-0404": {
+      "OpenIddict/1.0.0-alpha2-0408": {
         "type": "package",
         "dependencies": {
-          "OpenIddict.EntityFramework": "1.0.0-alpha2-0404"
+          "OpenIddict.EntityFramework": "1.0.0-alpha2-0408"
         },
         "compile": {
           "lib/net451/OpenIddict.dll": {}
@@ -1511,10 +1345,10 @@
           "lib/net451/OpenIddict.dll": {}
         }
       },
-      "OpenIddict.Core/1.0.0-alpha2-0404": {
+      "OpenIddict.Core/1.0.0-alpha2-0408": {
         "type": "package",
         "dependencies": {
-          "AspNet.Security.OpenIdConnect.Server": "1.0.0-beta7-0946",
+          "AspNet.Security.OpenIdConnect.Server": "1.0.0-beta7-0949",
           "CryptoHelper": "2.0.0",
           "Microsoft.AspNetCore.Diagnostics.Abstractions": "1.0.0",
           "Microsoft.AspNetCore.Identity": "1.0.0",
@@ -1527,26 +1361,17 @@
           "lib/net451/OpenIddict.Core.dll": {}
         }
       },
-      "OpenIddict.EntityFramework/1.0.0-alpha2-0404": {
+      "OpenIddict.EntityFramework/1.0.0-alpha2-0408": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
-          "OpenIddict.Core": "1.0.0-alpha2-0404"
+          "OpenIddict.Core": "1.0.0-alpha2-0408"
         },
         "compile": {
           "lib/net451/OpenIddict.EntityFramework.dll": {}
         },
         "runtime": {
           "lib/net451/OpenIddict.EntityFramework.dll": {}
-        }
-      },
-      "protobuf-net/2.0.0.668": {
-        "type": "package",
-        "compile": {
-          "lib/net40/protobuf-net.dll": {}
-        },
-        "runtime": {
-          "lib/net40/protobuf-net.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -1972,7 +1797,7 @@
           "lib/net451/AspNet.Security.OAuth.Validation.dll": {}
         }
       },
-      "AspNet.Security.OpenIdConnect.Extensions/1.0.0-beta7-0946": {
+      "AspNet.Security.OpenIdConnect.Extensions/1.0.0-beta7-0949": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication": "1.0.0",
@@ -1985,10 +1810,10 @@
           "lib/net451/AspNet.Security.OpenIdConnect.Extensions.dll": {}
         }
       },
-      "AspNet.Security.OpenIdConnect.Server/1.0.0-beta7-0946": {
+      "AspNet.Security.OpenIdConnect.Server/1.0.0-beta7-0949": {
         "type": "package",
         "dependencies": {
-          "AspNet.Security.OpenIdConnect.Extensions": "1.0.0-beta7-0946",
+          "AspNet.Security.OpenIdConnect.Extensions": "1.0.0-beta7-0949",
           "Microsoft.AspNetCore.Authentication": "1.0.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "2.0.0"
         },
@@ -1997,21 +1822,6 @@
         },
         "runtime": {
           "lib/net451/AspNet.Security.OpenIdConnect.Server.dll": {}
-        }
-      },
-      "BCrypt.Net-Core/1.0.1": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "System",
-          "System.Core",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/net451/BCrypt.Net-Core.dll": {}
-        },
-        "runtime": {
-          "lib/net451/BCrypt.Net-Core.dll": {}
         }
       },
       "CryptoHelper/2.0.0": {
@@ -2024,157 +1834,6 @@
         },
         "runtime": {
           "lib/net451/CryptoHelper.dll": {}
-        }
-      },
-      "Easyception/2.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net35/Easyception.dll": {}
-        },
-        "runtime": {
-          "lib/net35/Easyception.dll": {}
-        }
-      },
-      "fasterflect/2.1.3": {
-        "type": "package",
-        "compile": {
-          "lib/net40/Fasterflect.dll": {}
-        },
-        "runtime": {
-          "lib/net40/Fasterflect.dll": {}
-        }
-      },
-      "GladLive.Security.Common/1.0.12": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "Microsoft.CSharp",
-          "System",
-          "System.Core",
-          "mscorlib"
-        ],
-        "compile": {
-          "lib/net45/GladLive.Security.Common.dll": {}
-        },
-        "runtime": {
-          "lib/net45/GladLive.Security.Common.dll": {}
-        }
-      },
-      "GladLive.Web.Payloads.Authentication/1.0.13": {
-        "type": "package",
-        "dependencies": {
-          "GladNet.Payload": "2.0.16",
-          "GladNet.Serializer": "2.0.16"
-        },
-        "compile": {
-          "lib/net452/GladLive.Web.Payloads.Authentication.dll": {}
-        },
-        "runtime": {
-          "lib/net452/GladLive.Web.Payloads.Authentication.dll": {}
-        }
-      },
-      "GladNet.ASP.Formatters/1.0.16": {
-        "type": "package",
-        "dependencies": {
-          "GladNet.Message": "2.0.16",
-          "GladNet.Serializer": "2.0.16",
-          "Microsoft.AspNetCore.Mvc": "1.0.0"
-        },
-        "compile": {
-          "lib/net452/GladNet.ASP.Formatters.dll": {}
-        },
-        "runtime": {
-          "lib/net452/GladNet.ASP.Formatters.dll": {}
-        }
-      },
-      "GladNet.ASP.Server/1.0.16": {
-        "type": "package",
-        "dependencies": {
-          "GladNet.ASP.Formatters": "1.0.16",
-          "GladNet.Message": "2.0.16",
-          "Microsoft.AspNetCore.Mvc": "1.0.0"
-        },
-        "compile": {
-          "lib/net452/GladNet.ASP.Server.dll": {}
-        },
-        "runtime": {
-          "lib/net452/GladNet.ASP.Server.dll": {}
-        }
-      },
-      "GladNet.Common/2.0.16": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0"
-        },
-        "compile": {
-          "lib/net35/GladNet.Common.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Common.dll": {}
-        }
-      },
-      "GladNet.Encryption/2.0.16": {
-        "type": "package",
-        "compile": {
-          "lib/net35/GladNet.Encryption.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Encryption.dll": {}
-        }
-      },
-      "GladNet.Message/2.0.16": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0",
-          "GladNet.Common": "2.0.16",
-          "GladNet.Encryption": "2.0.16",
-          "GladNet.Payload": "2.0.16",
-          "GladNet.Serializer": "2.0.16"
-        },
-        "compile": {
-          "lib/net35/GladNet.Message.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Message.dll": {}
-        }
-      },
-      "GladNet.Payload/2.0.16": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0",
-          "GladNet.Serializer": "2.0.16"
-        },
-        "compile": {
-          "lib/net35/GladNet.Payload.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Payload.dll": {}
-        }
-      },
-      "GladNet.Serializer/2.0.16": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0"
-        },
-        "compile": {
-          "lib/net35/GladNet.Serializer.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Serializer.dll": {}
-        }
-      },
-      "GladNet.Serializer.Protobuf/1.0.11": {
-        "type": "package",
-        "dependencies": {
-          "Easyception": "2.0.0",
-          "GladNet.Serializer": "1.0.0",
-          "fasterflect": "2.1.3",
-          "protobuf-net": "2.0.0.668"
-        },
-        "compile": {
-          "lib/net35/GladNet.Serializer.Protobuf.dll": {}
-        },
-        "runtime": {
-          "lib/net35/GladNet.Serializer.Protobuf.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -3456,10 +3115,10 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "OpenIddict/1.0.0-alpha2-0404": {
+      "OpenIddict/1.0.0-alpha2-0408": {
         "type": "package",
         "dependencies": {
-          "OpenIddict.EntityFramework": "1.0.0-alpha2-0404"
+          "OpenIddict.EntityFramework": "1.0.0-alpha2-0408"
         },
         "compile": {
           "lib/net451/OpenIddict.dll": {}
@@ -3468,10 +3127,10 @@
           "lib/net451/OpenIddict.dll": {}
         }
       },
-      "OpenIddict.Core/1.0.0-alpha2-0404": {
+      "OpenIddict.Core/1.0.0-alpha2-0408": {
         "type": "package",
         "dependencies": {
-          "AspNet.Security.OpenIdConnect.Server": "1.0.0-beta7-0946",
+          "AspNet.Security.OpenIdConnect.Server": "1.0.0-beta7-0949",
           "CryptoHelper": "2.0.0",
           "Microsoft.AspNetCore.Diagnostics.Abstractions": "1.0.0",
           "Microsoft.AspNetCore.Identity": "1.0.0",
@@ -3484,26 +3143,17 @@
           "lib/net451/OpenIddict.Core.dll": {}
         }
       },
-      "OpenIddict.EntityFramework/1.0.0-alpha2-0404": {
+      "OpenIddict.EntityFramework/1.0.0-alpha2-0408": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0",
-          "OpenIddict.Core": "1.0.0-alpha2-0404"
+          "OpenIddict.Core": "1.0.0-alpha2-0408"
         },
         "compile": {
           "lib/net451/OpenIddict.EntityFramework.dll": {}
         },
         "runtime": {
           "lib/net451/OpenIddict.EntityFramework.dll": {}
-        }
-      },
-      "protobuf-net/2.0.0.668": {
-        "type": "package",
-        "compile": {
-          "lib/net40/protobuf-net.dll": {}
-        },
-        "runtime": {
-          "lib/net40/protobuf-net.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -3931,12 +3581,12 @@
         "lib/netstandard1.3/AspNet.Security.OAuth.Validation.xml"
       ]
     },
-    "AspNet.Security.OpenIdConnect.Extensions/1.0.0-beta7-0946": {
-      "sha512": "kuS5qEI7staMlw276YfU/21NkB+TNAIp/1dsJLfsqmVS2vpJt4FFQE7AVVd+mKYZF6NCDZn9C7VJy0+IHRiRVg==",
+    "AspNet.Security.OpenIdConnect.Extensions/1.0.0-beta7-0949": {
+      "sha512": "FSKcleM5F9BpFHjEWWZdA9I5Bqr7bvxaZNTp8G1zEuSVK2aiYlhqgCcvaq1WIoCZFpnFt8FBe/xQFQBu+4VIQg==",
       "type": "package",
-      "path": "AspNet.Security.OpenIdConnect.Extensions/1.0.0-beta7-0946",
+      "path": "AspNet.Security.OpenIdConnect.Extensions/1.0.0-beta7-0949",
       "files": [
-        "AspNet.Security.OpenIdConnect.Extensions.1.0.0-beta7-0946.nupkg.sha512",
+        "AspNet.Security.OpenIdConnect.Extensions.1.0.0-beta7-0949.nupkg.sha512",
         "AspNet.Security.OpenIdConnect.Extensions.nuspec",
         "lib/net451/AspNet.Security.OpenIdConnect.Extensions.dll",
         "lib/net451/AspNet.Security.OpenIdConnect.Extensions.xml",
@@ -3944,32 +3594,17 @@
         "lib/netstandard1.4/AspNet.Security.OpenIdConnect.Extensions.xml"
       ]
     },
-    "AspNet.Security.OpenIdConnect.Server/1.0.0-beta7-0946": {
-      "sha512": "0F3w8si6kxOgGS+e+GNyKq+h1Rl7eixArmHTm8qW1XGEuVoU++73i3hG6rPEq4yCxZaKvjWzzXT53m1dT6e3vQ==",
+    "AspNet.Security.OpenIdConnect.Server/1.0.0-beta7-0949": {
+      "sha512": "74FgPFYPWHXqqEaOaAqgnW/qKaofvZbNzHYEOfMOg46U3scbOfDdBq0rRO2mEMBk1qi6BUL/BXtqXA/IrCAf7Q==",
       "type": "package",
-      "path": "AspNet.Security.OpenIdConnect.Server/1.0.0-beta7-0946",
+      "path": "AspNet.Security.OpenIdConnect.Server/1.0.0-beta7-0949",
       "files": [
-        "AspNet.Security.OpenIdConnect.Server.1.0.0-beta7-0946.nupkg.sha512",
+        "AspNet.Security.OpenIdConnect.Server.1.0.0-beta7-0949.nupkg.sha512",
         "AspNet.Security.OpenIdConnect.Server.nuspec",
         "lib/net451/AspNet.Security.OpenIdConnect.Server.dll",
         "lib/net451/AspNet.Security.OpenIdConnect.Server.xml",
         "lib/netstandard1.4/AspNet.Security.OpenIdConnect.Server.dll",
         "lib/netstandard1.4/AspNet.Security.OpenIdConnect.Server.xml"
-      ]
-    },
-    "BCrypt.Net-Core/1.0.1": {
-      "sha512": "eIzSzARLVsuOlI8+sZUwe/sW/ukSkCswXd/HCND+LbBj0wh4SHUUNgAE2V+RFmtdstZB9zlkXl1azp7i8DfTwQ==",
-      "type": "package",
-      "files": [
-        "BCrypt.Net-Core.1.0.1.nupkg",
-        "BCrypt.Net-Core.1.0.1.nupkg.sha512",
-        "BCrypt.Net-Core.nuspec",
-        "lib/dnxcore50/BCrypt.Net-Core.dll",
-        "lib/dnxcore50/BCrypt.Net-Core.xml",
-        "lib/dotnet5.4/BCrypt.Net-Core.dll",
-        "lib/dotnet5.4/BCrypt.Net-Core.xml",
-        "lib/net451/BCrypt.Net-Core.dll",
-        "lib/net451/BCrypt.Net-Core.xml"
       ]
     },
     "CryptoHelper/2.0.0": {
@@ -3983,144 +3618,6 @@
         "lib/net451/CryptoHelper.xml",
         "lib/netstandard1.3/CryptoHelper.dll",
         "lib/netstandard1.3/CryptoHelper.xml"
-      ]
-    },
-    "Easyception/2.0.0": {
-      "sha512": "46cHaDQ8kcTikcceMxkKHHQ6RghJkI1FEQ4occoX5TAU7aFktObWldaKmu9BjItlpl0twiA26+pJ2pSlSnpStw==",
-      "type": "package",
-      "path": "Easyception/2.0.0",
-      "files": [
-        "Easyception.2.0.0.nupkg.sha512",
-        "Easyception.nuspec",
-        "lib/net35/Easyception.dll"
-      ]
-    },
-    "fasterflect/2.1.3": {
-      "sha512": "DCYneTQ/fY3HieKSJdcA/Z9hCg/5maAZpoqySqO4+XC3BgUasHOrTZY4BEf76WZPZwIU5SNUhrPuxKSHyyg+mg==",
-      "type": "package",
-      "files": [
-        "fasterflect.2.1.3.nupkg",
-        "fasterflect.2.1.3.nupkg.sha512",
-        "fasterflect.nuspec",
-        "lib/net35/Fasterflect.XML",
-        "lib/net35/Fasterflect.dll",
-        "lib/net40/Fasterflect.XML",
-        "lib/net40/Fasterflect.dll"
-      ]
-    },
-    "GladLive.Security.Common/1.0.12": {
-      "sha512": "n33ADNjNyJLeekr4XAy1yf7Zm/eWvTInxcoxVJcMxhOezICg+j9vCY5v16MDyZtFJ24rXIzjMvG01ajlwe19Xw==",
-      "type": "package",
-      "files": [
-        "GladLive.Security.Common.1.0.12.nupkg",
-        "GladLive.Security.Common.1.0.12.nupkg.sha512",
-        "GladLive.Security.Common.nuspec",
-        "lib/dnx451/GladLive.Security.Common.dll",
-        "lib/dnx451/GladLive.Security.Common.xml",
-        "lib/net35/GladLive.Security.Common.dll",
-        "lib/net35/GladLive.Security.Common.xml",
-        "lib/net45/GladLive.Security.Common.dll",
-        "lib/net45/GladLive.Security.Common.xml"
-      ]
-    },
-    "GladLive.Web.Payloads.Authentication/1.0.13": {
-      "sha512": "XqHmZvDENfSkQDhUvrTRMEqr7W/sp31GqaRKCKYG/1+XP6ystGMnYGrsbtIvIwyXlXe0xTlcHhw2RSTk/ni70A==",
-      "type": "package",
-      "path": "GladLive.Web.Payloads.Authentication/1.0.13",
-      "files": [
-        "GladLive.Web.Payloads.Authentication.1.0.13.nupkg.sha512",
-        "GladLive.Web.Payloads.Authentication.nuspec",
-        "lib/net35/GladLive.Web.Payloads.Authentication.dll",
-        "lib/net45/GladLive.Web.Payloads.Authentication.dll",
-        "lib/net451/GladLive.Web.Payloads.Authentication.dll",
-        "lib/net452/GladLive.Web.Payloads.Authentication.dll"
-      ]
-    },
-    "GladNet.ASP.Formatters/1.0.16": {
-      "sha512": "+JHzsxomiBdbEF+bLChlerodO56MyW+6bxkj5rwsHwVE25PogcKrkuJeqcvUSHE/dabRRXZkhuOryfQhbCxn6g==",
-      "type": "package",
-      "path": "GladNet.ASP.Formatters/1.0.16",
-      "files": [
-        "GladNet.ASP.Formatters.1.0.16.nupkg.sha512",
-        "GladNet.ASP.Formatters.nuspec",
-        "lib/net451/GladNet.ASP.Formatters.dll",
-        "lib/net452/GladNet.ASP.Formatters.dll"
-      ]
-    },
-    "GladNet.ASP.Server/1.0.16": {
-      "sha512": "+FHSJHdBXCm9R5REgXEZH5MYgHOLpCXFiZnr6fovvhx0K8cbzuzwcqaXab50vvRr2DjaNaQMQakR2pIaOxj0Lg==",
-      "type": "package",
-      "path": "GladNet.ASP.Server/1.0.16",
-      "files": [
-        "GladNet.ASP.Server.1.0.16.nupkg.sha512",
-        "GladNet.ASP.Server.nuspec",
-        "lib/net451/GladNet.ASP.Server.dll",
-        "lib/net452/GladNet.ASP.Server.dll"
-      ]
-    },
-    "GladNet.Common/2.0.16": {
-      "sha512": "s5Ve3g+HQrgk7Qm8n5vwh30XTwne3TVFbOCiQh8irlQwemmrhdETpSLZ1Gu3GMQgqAV4pVV3B3lBfR8K9FdwMg==",
-      "type": "package",
-      "path": "GladNet.Common/2.0.16",
-      "files": [
-        "GladNet.Common.2.0.16.nupkg.sha512",
-        "GladNet.Common.nuspec",
-        "lib/net35/GladNet.Common.XML",
-        "lib/net35/GladNet.Common.dll"
-      ]
-    },
-    "GladNet.Encryption/2.0.16": {
-      "sha512": "4mSdw79QXyx3OXfur8vRG79sHYLyzSIAbKKuOp1zaXuclDQ92zdDLlnwjDLrcbfR2qZfvnqDPXaW+JAbwB17HQ==",
-      "type": "package",
-      "path": "GladNet.Encryption/2.0.16",
-      "files": [
-        "GladNet.Encryption.2.0.16.nupkg.sha512",
-        "GladNet.Encryption.nuspec",
-        "lib/net35/GladNet.Encryption.XML",
-        "lib/net35/GladNet.Encryption.dll"
-      ]
-    },
-    "GladNet.Message/2.0.16": {
-      "sha512": "saaaBZ8+bQ4x/AV1+9rNfvsyrivjOIqnQQuZbe2XR15uiMpfEMd7r8vq67rtd9z7bx+bqVlI1Z9WR2OhLSKqyQ==",
-      "type": "package",
-      "path": "GladNet.Message/2.0.16",
-      "files": [
-        "GladNet.Message.2.0.16.nupkg.sha512",
-        "GladNet.Message.nuspec",
-        "lib/net35/GladNet.Message.XML",
-        "lib/net35/GladNet.Message.dll"
-      ]
-    },
-    "GladNet.Payload/2.0.16": {
-      "sha512": "oPWZsmuNPiegBE3NjhOXnh9zEIXHcSLymHJwTa2V8OUsaOWxg7W5YXM+f7jrHs7kaeVerG9L+H5jUbXXIK5Y5A==",
-      "type": "package",
-      "path": "GladNet.Payload/2.0.16",
-      "files": [
-        "GladNet.Payload.2.0.16.nupkg.sha512",
-        "GladNet.Payload.nuspec",
-        "lib/net35/GladNet.Payload.XML",
-        "lib/net35/GladNet.Payload.dll"
-      ]
-    },
-    "GladNet.Serializer/2.0.16": {
-      "sha512": "WK2N5fcYfzDegJf4LQ67sgczAbEHuquHIBx2UcXqcuAXOJKM392YDvqZ0ZJo122ZNISaJr8RtRBLOHlMpNQ21A==",
-      "type": "package",
-      "path": "GladNet.Serializer/2.0.16",
-      "files": [
-        "GladNet.Serializer.2.0.16.nupkg.sha512",
-        "GladNet.Serializer.nuspec",
-        "lib/net35/GladNet.Serializer.XML",
-        "lib/net35/GladNet.Serializer.dll"
-      ]
-    },
-    "GladNet.Serializer.Protobuf/1.0.11": {
-      "sha512": "IFA1vOC3DqJQX/Y4jMsUNxYveVeq0RNwhrEi9ty9cWaw5BqxxEmArRJGZeif9eELJNbfSuaVv+/aemyKosypgw==",
-      "type": "package",
-      "path": "GladNet.Serializer.Protobuf/1.0.11",
-      "files": [
-        "GladNet.Serializer.Protobuf.1.0.11.nupkg.sha512",
-        "GladNet.Serializer.Protobuf.nuspec",
-        "lib/net35/GladNet.Serializer.Protobuf.dll"
       ]
     },
     "Libuv/1.9.0": {
@@ -5296,12 +4793,12 @@
         "tools/install.ps1"
       ]
     },
-    "OpenIddict/1.0.0-alpha2-0404": {
-      "sha512": "NoclYj2cbNmUrHDCB88vfbvrlLnnZPkyJpmyuz6NAU7RNBs/YFdzykxr/zrexm8iU3ysCDj0hjUGc+8k7i6cVQ==",
+    "OpenIddict/1.0.0-alpha2-0408": {
+      "sha512": "QyNc+A9KsHlpqB3ty2yVWv98M3GdpwSYmunwuTMbfE9fb5rYHvNg5kRRvp9tGZD9gNuUhbXrqUvrgPKfjvlBVg==",
       "type": "package",
-      "path": "OpenIddict/1.0.0-alpha2-0404",
+      "path": "OpenIddict/1.0.0-alpha2-0408",
       "files": [
-        "OpenIddict.1.0.0-alpha2-0404.nupkg.sha512",
+        "OpenIddict.1.0.0-alpha2-0408.nupkg.sha512",
         "OpenIddict.nuspec",
         "lib/net451/OpenIddict.dll",
         "lib/net451/OpenIddict.xml",
@@ -5309,12 +4806,12 @@
         "lib/netstandard1.4/OpenIddict.xml"
       ]
     },
-    "OpenIddict.Core/1.0.0-alpha2-0404": {
-      "sha512": "NvbwSEFqus0p4zo3Ic+O3s/8BHSOWp1rj9jowcOgru/nt4PGnQpAbplCQo0ZchdT0/cDXFAuIMCeGpYesgUMEA==",
+    "OpenIddict.Core/1.0.0-alpha2-0408": {
+      "sha512": "XntB3qVjLhpbwoEX5h0kUZJD9lZ6oG//YIvAbEbMdOmrS93ZgWC0Foj258dbOBDpgNBrmf4JMMmL5+iwF+efCw==",
       "type": "package",
-      "path": "OpenIddict.Core/1.0.0-alpha2-0404",
+      "path": "OpenIddict.Core/1.0.0-alpha2-0408",
       "files": [
-        "OpenIddict.Core.1.0.0-alpha2-0404.nupkg.sha512",
+        "OpenIddict.Core.1.0.0-alpha2-0408.nupkg.sha512",
         "OpenIddict.Core.nuspec",
         "lib/net451/OpenIddict.Core.dll",
         "lib/net451/OpenIddict.Core.xml",
@@ -5322,66 +4819,17 @@
         "lib/netstandard1.4/OpenIddict.Core.xml"
       ]
     },
-    "OpenIddict.EntityFramework/1.0.0-alpha2-0404": {
-      "sha512": "fl8rkJakHVwopAclwaOVTQMTZM3ynADU5QeYaJnbBgrDjRCJ0ja30nezH5gQvfOOf+U2/7YFrfG1vBt7swHHxA==",
+    "OpenIddict.EntityFramework/1.0.0-alpha2-0408": {
+      "sha512": "jxFax8Ph2/Yhs1Py65JVXJFP09RjmogHY2VN7edkhZY638ABG1nKaBkL+e30/0JE+kb+ABgfB0jkpGfO26ozwg==",
       "type": "package",
-      "path": "OpenIddict.EntityFramework/1.0.0-alpha2-0404",
+      "path": "OpenIddict.EntityFramework/1.0.0-alpha2-0408",
       "files": [
-        "OpenIddict.EntityFramework.1.0.0-alpha2-0404.nupkg.sha512",
+        "OpenIddict.EntityFramework.1.0.0-alpha2-0408.nupkg.sha512",
         "OpenIddict.EntityFramework.nuspec",
         "lib/net451/OpenIddict.EntityFramework.dll",
         "lib/net451/OpenIddict.EntityFramework.xml",
         "lib/netstandard1.4/OpenIddict.EntityFramework.dll",
         "lib/netstandard1.4/OpenIddict.EntityFramework.xml"
-      ]
-    },
-    "protobuf-net/2.0.0.668": {
-      "sha512": "Lgj+Kf1+RV0utKxX9u1WEcymPGrbWrj/AwFmFADFLLa/LLdc1ji2MIGcecFRAGUu6UO8BRbdjZAIYWvLlN1B/A==",
-      "type": "package",
-      "path": "protobuf-net/2.0.0.668",
-      "files": [
-        "lib/net20-cf/protobuf-net.dll",
-        "lib/net20-cf/protobuf-net.pdb",
-        "lib/net20-cf/protobuf-net.xml",
-        "lib/net20/protobuf-net.dll",
-        "lib/net20/protobuf-net.pdb",
-        "lib/net20/protobuf-net.xml",
-        "lib/net30/protobuf-net.dll",
-        "lib/net30/protobuf-net.pdb",
-        "lib/net30/protobuf-net.xml",
-        "lib/net35-cf/protobuf-net.dll",
-        "lib/net35-cf/protobuf-net.pdb",
-        "lib/net35-cf/protobuf-net.xml",
-        "lib/net35/protobuf-net.dll",
-        "lib/net35/protobuf-net.pdb",
-        "lib/net35/protobuf-net.xml",
-        "lib/net40-cf/protobuf-net.dll",
-        "lib/net40-cf/protobuf-net.pdb",
-        "lib/net40-cf/protobuf-net.xml",
-        "lib/net40/protobuf-net.dll",
-        "lib/net40/protobuf-net.pdb",
-        "lib/net40/protobuf-net.xml",
-        "lib/netcore45/protobuf-net.XML",
-        "lib/netcore45/protobuf-net.dll",
-        "lib/netcore45/protobuf-net.pdb",
-        "lib/netcore45/protobuf-net.pri",
-        "lib/portable-sl4+net40+wp7+windows8/protobuf-net.dll",
-        "lib/portable-sl4+net40+wp7+windows8/protobuf-net.pdb",
-        "lib/portable-sl4+net40+wp7+windows8/protobuf-net.xml",
-        "lib/sl3-wp/protobuf-net.dll",
-        "lib/sl3-wp/protobuf-net.pdb",
-        "lib/sl3-wp/protobuf-net.xml",
-        "lib/sl4-windowsphone71/protobuf-net.dll",
-        "lib/sl4-windowsphone71/protobuf-net.pdb",
-        "lib/sl4-windowsphone71/protobuf-net.xml",
-        "lib/sl4/protobuf-net.dll",
-        "lib/sl4/protobuf-net.pdb",
-        "lib/sl4/protobuf-net.xml",
-        "lib/windowsphone8/protobuf-net.dll",
-        "lib/windowsphone8/protobuf-net.pdb",
-        "lib/windowsphone8/protobuf-net.xml",
-        "protobuf-net.2.0.0.668.nupkg.sha512",
-        "protobuf-net.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
@@ -7195,13 +6643,6 @@
   "projectFileDependencyGroups": {
     "": [
       "AspNet.Security.OAuth.Validation >= 1.0.0-alpha2-final",
-      "BCrypt.Net-Core >= 1.0.1",
-      "GladLive.Security.Common >= 1.0.12",
-      "GladLive.Web.Payloads.Authentication >= 1.0.13",
-      "GladNet.ASP.Formatters >= 1.0.16",
-      "GladNet.ASP.Server >= 1.0.16",
-      "GladNet.Payload >= 2.0.16",
-      "GladNet.Serializer.Protobuf >= 1.0.11",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 1.0.0",
