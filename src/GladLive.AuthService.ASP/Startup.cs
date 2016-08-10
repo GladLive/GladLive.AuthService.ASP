@@ -1,6 +1,4 @@
-﻿using GladLive.Security.Common;
-using GladLive.Web.Payloads.Authentication;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +12,6 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
-using GladNet.ASP.Formatters;
-using GladNet.Serializer.Protobuf;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Identity;
@@ -28,7 +24,6 @@ namespace GladLive.AuthService.ASP
 		public void ConfigureServices(IServiceCollection services)
 		{
 			//This adds the MVC core features and GladNet features
-			services.AddGladNet(new ProtobufnetSerializerStrategy(), new ProtobufnetDeserializerStrategy(), new ProtobufnetRegistry());
 			services.AddLogging();
 
 			services.AddEntityFrameworkSqlServer()
@@ -41,8 +36,6 @@ namespace GladLive.AuthService.ASP
 			// Register the OpenIddict services, including the default Entity Framework stores.
 			services.AddOpenIddict<GladLiveApplicationUser, IdentityRole, GladLiveApplicationDbContext>();
 
-			//We only have a protobuf-net Web API for authentication right now
-
 			//Below is the OpenIddict registration
 			//This is the recommended setup from the official Github: https://github.com/openiddict/openiddict-core
 			services.AddIdentity<GladLiveApplicationUser, IdentityRole>()
@@ -51,7 +44,7 @@ namespace GladLive.AuthService.ASP
 				.AddDefaultTokenProviders();
 
 			services.AddOpenIddict<GladLiveApplicationUser, GladLiveApplicationDbContext>()
-				.EnableTokenEndpoint("/api/AuthRequest") // Enable the token endpoint (required to use the password flow).
+				.EnableTokenEndpoint($"/api/AuthenticationRequest") // Enable the token endpoint (required to use the password flow).
 				.AllowPasswordFlow() // Allow client applications to use the grant_type=password flow.
 				.AllowRefreshTokenFlow()
 				.UseJsonWebTokens()
@@ -96,8 +89,6 @@ namespace GladLive.AuthService.ASP
 			//We have to register the payload types
 			//We could maybe do some static analysis to find referenced payloads and auto generate this code
 			//or find them at runtime but for now this is ok
-			new GladNet.Serializer.Protobuf.ProtobufnetRegistry().Register(typeof(AuthRequest));
-			new GladNet.Serializer.Protobuf.ProtobufnetRegistry().Register(typeof(AuthResponse));
 		}
 
 		//This changed in RTM. Fluently build and setup the web hosting
