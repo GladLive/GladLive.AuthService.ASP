@@ -46,7 +46,7 @@ namespace GladLive.AuthService.ASP
 
 			services.AddOpenIddict<GladLiveApplicationUser, GladLiveApplicationDbContext>()
 				.EnableTokenEndpoint($"/api/AuthenticationRequest") // Enable the token endpoint (required to use the password flow).
-				.AllowPasswordFlow() // Allow client applications to use the grant_type=password flow.
+				.AllowPasswordFlow()// Allow client applications to use the grant_type=password flow.
 				.AllowRefreshTokenFlow()
 				.UseJsonWebTokens()
 
@@ -55,7 +55,8 @@ namespace GladLive.AuthService.ASP
 				.AddEphemeralSigningKey();
 #else
 			;
-#endif			
+#endif
+
 			services.AddTransient<GladLiveApplicationDbContext, GladLiveApplicationDbContext>();
 
 			services.AddScoped<OpenIddictUserManager<GladLiveApplicationUser>, GladLiveOpenIddictManager>();
@@ -84,7 +85,7 @@ namespace GladLive.AuthService.ASP
 				Audience = @"http://localhost:5000/",
 				Authority = @"http://localhost:5000/"
 			});
-
+			
 			app.UseMvc();
 
 			//We have to register the payload types
