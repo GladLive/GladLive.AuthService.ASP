@@ -16,13 +16,30 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Identity;
 using OpenIddict;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 
 namespace GladLive.AuthService.ASP
 {
 	public class Startup
 	{
+		public IConfigurationRoot Configuration { get; }
+
+		public Startup(IHostingEnvironment env)
+		{
+			var builder = new ConfigurationBuilder()
+				.SetBasePath(env.ContentRootPath)
+				.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+				.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+			builder.AddEnvironmentVariables();
+			Configuration = builder.Build();
+		}
+
 		public void ConfigureServices(IServiceCollection services)
 		{
+
 			//This adds the MVC core features and GladNet features
 			services.AddLogging();
 			services.AddMvc();
@@ -49,12 +66,11 @@ namespace GladLive.AuthService.ASP
 				.AllowPasswordFlow()// Allow client applications to use the grant_type=password flow.
 				.AllowRefreshTokenFlow()
 				.UseJsonWebTokens()
-
 #if DEBUG || DEV
 				.DisableHttpsRequirement()
 				.AddEphemeralSigningKey();
 #else
-			;
+				.AddSigningCertificate(new X509Certificate2($@"Certs/{Configuration.GetSection("CertSettings").GetSection("Name").Value}.pfx"));
 #endif
 
 			services.AddTransient<GladLiveApplicationDbContext, GladLiveApplicationDbContext>();
@@ -69,7 +85,6 @@ namespace GladLive.AuthService.ASP
 			//app.UseIISPlatformHandler();
 
 			loggerFactory.AddConsole(LogLevel.Information);
-
 
 			//This JWT example indicates we shouldn't use Identity: https://github.com/capesean/openiddict-test/blob/master/src/openiddict-test/Startup.cs
 			//app.UseIdentity();
@@ -95,7 +110,14 @@ namespace GladLive.AuthService.ASP
 
 		//This changed in RTM. Fluently build and setup the web hosting
 		public static void Main(string[] args) => new WebHostBuilder()
-			.UseKestrel()
+			.UseKestrel(options =>
+			{
+				X509Certificate2 cert = new X509Certificate2(@"Certs/certificate.pfx");
+
+			//TODO: Handle cert changes
+			options.UseHttps(new HttpsConnectionFilterOptions() { SslProtocols = System.Security.Authentication.SslProtocols.Tls | System.Security.Authentication.SslProtocols.Tls11 | System.Security.Authentication.SslProtocols.Tls12, ServerCertificate = cert });
+			})
+			.UseUrls(@"https://localhost:44300")
 			.UseContentRoot(Directory.GetCurrentDirectory())
 			.UseStartup<Startup>()
 			.Build()
