@@ -2,10 +2,10 @@
 
 GladLive is network session service comparable to Xboxlive or Steam. 
 
-GladLive.AuthService.ASP is a web scalable ASP.NET 5 authentication webservice/web-api for the GladLive distributed network and preforms this role by providing:
+GladLive.AuthService.ASP is a web scalable ASP core authentication webservice/web-api for the GladLive distributed network and preforms this role by providing:
   - Services Authentication requests for the GladLive distributed network
   - Vertically and horizontally scalable
-  - RSA security scheme used for authentication distributed with clients
+  - Issues JWT tokens to authenticated users
   - Web and cloud ready
 
 ## GladLive Services
@@ -17,9 +17,9 @@ GladLive.AuthService.ASP: https://github.com/GladLive/GladLive.AuthService.ASP
 ## Setup
 
 To use this project you'll first need a couple of things:
-  - Visual Studio 2015 RC 2
-  - ASP.NET 5
-  - DNX/DNVM
+  - Visual Studio 2015 RC 3
+  - ASP Core VS Tools
+  - Dotnet SDK
   - Add Nuget Feed https://www.myget.org/F/hellokitty/api/v2 in VS (Options -> NuGet -> Package Sources)
 
 ## Builds
