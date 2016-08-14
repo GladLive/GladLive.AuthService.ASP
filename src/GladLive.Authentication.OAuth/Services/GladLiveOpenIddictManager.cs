@@ -25,7 +25,7 @@ namespace GladLive.AuthService.ASP
 		{
 			var claimsIdentity = await base.CreateIdentityAsync(user, scopes);
 
-			claimsIdentity.AddClaim("user_name", user.UserName,
+			claimsIdentity.AddClaim("UserName", user.UserName,
 				OpenIdConnectConstants.Destinations.AccessToken,
 				OpenIdConnectConstants.Destinations.IdentityToken);
 

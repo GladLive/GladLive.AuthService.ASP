@@ -1,19 +1,13 @@
-# GladLive.AuthService.ASP
+# GladLive.Authentication
 
 GladLive is network session service comparable to Xboxlive or Steam. 
 
-GladLive.AuthService.ASP is a web scalable ASP core authentication webservice/web-api for the GladLive distributed network and preforms this role by providing:
+GladLive.Authentication is the module libraries for authentication/authorization for the GladLive distributed network and preforms this role by providing:
   - Services Authentication requests for the GladLive distributed network
   - Vertically and horizontally scalable
   - Issues JWT tokens to authenticated users
   - Supports HTTPS and signing JWT's with x509 cert
   - Web and cloud ready
-
-## GladLive Services
-
-GladLive.ProxyLoadBalancer: https://github.com/GladLive/GladLive.ProxyLoadBalancer
-
-GladLive.AuthService.ASP: https://github.com/GladLive/GladLive.AuthService.ASP
 
 ## Setup
 
@@ -24,6 +18,8 @@ To use this project you'll first need a couple of things:
   - Add Nuget Feed https://www.myget.org/F/hellokitty/api/v2 in VS (Options -> NuGet -> Package Sources)
 
 ## How To Use
+
+Register the modules in the modules.json and the connection string in the database.json.
 
 Start the application and connect to the {baseurl}/api/AuthenticationRequest endpoint to be issued a JWT authorization response. To authenticate you must send username, password and grant_type password in the request body of a POST with a url encoded content type.
 
@@ -40,8 +36,8 @@ The server will issue a JWT token in the response body or error information.
 #### Linux/Mono - Unit Tests
 ||Debug x86|Debug x64|Release x86|Release x64|
 |:--:|:--:|:--:|:--:|:--:|:--:|
-|**master**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.AuthService.ASP.svg?branch=master)](https://travis-ci.org/GladLive/GladLive.AuthService.ASP) |
-|**dev**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.AuthService.ASP.svg?branch=dev)](https://travis-ci.org/GladLive/GladLive.AuthService.ASP)|
+|**master**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.Authentication.svg?branch=master)](https://travis-ci.org/GladLive/GladLive.Authentication) |
+|**dev**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.Authentication.svg?branch=dev)](https://travis-ci.org/GladLive/GladLive.Authentication)|
 
 #### Windows - Unit Tests
 
