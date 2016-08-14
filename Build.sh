@@ -1,2 +1,2 @@
-dnu restore
-dnu build ./src/GladLive.AuthService.ASP/project.json
+dotnet restore
+dotnet build src/*/project.json
