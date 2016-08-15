@@ -12,9 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5D9A1A1C-5E90-4A4E-B25F-E712964586F2}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GladLive.Authentication.OAuth", "src\GladLive.Authentication.OAuth\GladLive.Authentication.OAuth.xproj", "{5AB475FB-3C72-4486-BC55-84C0A87BD735}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GladLive.Authentication.OAuth.Module", "src\GladLive.Authentication.OAuth.Module\GladLive.Authentication.OAuth.Module.xproj", "{4D653873-3330-4FF7-B55E-DC62606B000B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GladLive.Authentication.JWTAuthorization.Module", "src\GladLive.Authentication.JWTAuthorization.Module\GladLive.Authentication.JWTAuthorization.Module.xproj", "{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GladLive.Authentication.OAuth", "src\GladLive.Authentication.OAuth\GladLive.Authentication.OAuth.xproj", "{C95F9601-3372-43B4-AA88-1572805D5909}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,20 +24,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5AB475FB-3C72-4486-BC55-84C0A87BD735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5AB475FB-3C72-4486-BC55-84C0A87BD735}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5AB475FB-3C72-4486-BC55-84C0A87BD735}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5AB475FB-3C72-4486-BC55-84C0A87BD735}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D653873-3330-4FF7-B55E-DC62606B000B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D653873-3330-4FF7-B55E-DC62606B000B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D653873-3330-4FF7-B55E-DC62606B000B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D653873-3330-4FF7-B55E-DC62606B000B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C95F9601-3372-43B4-AA88-1572805D5909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C95F9601-3372-43B4-AA88-1572805D5909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C95F9601-3372-43B4-AA88-1572805D5909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C95F9601-3372-43B4-AA88-1572805D5909}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5AB475FB-3C72-4486-BC55-84C0A87BD735} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
 		{4D653873-3330-4FF7-B55E-DC62606B000B} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
+		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
+		{C95F9601-3372-43B4-AA88-1572805D5909} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
 	EndGlobalSection
 EndGlobal
