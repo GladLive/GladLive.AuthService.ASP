@@ -26,7 +26,7 @@ For example: username=TestUsername&password=Test123&grant_type=password
 
 The server will issue a JWT token in the response body or error information.
 
-It also contains a not-for-production account creation controller at {baseurl}/api/AccountCreateRequest using query string parameters.
+Also contains a test only account creation controller at {baseurl}/api/AccountCreateRequest using query string parameters.
 
 ## Builds
 
