@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OpenIddict;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using OpenIddict.Models;
 
 namespace GladLive.AuthService.ASP
 {

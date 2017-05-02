@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GladLive.Authentication.OAuth.Module")]
+[assembly: AssemblyTitle("GladLive.Authentication.OAuth")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("GladLive.Authentication.OAuth.Module")]
+[assembly: AssemblyProduct("GladLive.Authentication.OAuth")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("518512cd-06d0-4845-8fc0-3f685510d544")]
+[assembly: Guid("3f350997-6b4f-4cf4-b5dc-c5412676d4be")]
 
 // Version information for an assembly consists of the following four values:
 //
