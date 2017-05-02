@@ -18,7 +18,9 @@ namespace GladLive.Authentication.OAuth.Module.Modules
 
 		public override void Register()
 		{
-			this.applicationBuilder.UseOpenIddict();
+			applicationBuilder.UseIdentity();
+			applicationBuilder.UseOpenIddict();
+			applicationBuilder.UseMvcWithDefaultRoute();
 		}
 	}
 }

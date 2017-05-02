@@ -1,15 +1,13 @@
-﻿using GladLive.Module.System.Library;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using GladLive.AuthService.ASP;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Builder;
+﻿using System;
 using System.Security.Cryptography.X509Certificates;
-using OpenIddict;
+using AspNet.Security.OpenIdConnect.Primitives;
+using GladLive.AuthService.ASP;
+using GladLive.Module.System.Library;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GladLive.Authentication.OAuth.Module
 {
@@ -23,24 +21,47 @@ namespace GladLive.Authentication.OAuth.Module
 
 		public override void Register()
 		{
-			serviceCollection.AddEntityFrameworkSqlServer()
-				.AddDbContext<GladLiveApplicationDbContext>(this.DbOptions);
+			serviceCollection.AddEntityFramework();
 
 			//Below is the OpenIddict registration
 			//This is the recommended setup from the official Github: https://github.com/openiddict/openiddict-core
 			serviceCollection.AddIdentity<GladLiveApplicationUser, IdentityRole>()
 				.AddEntityFrameworkStores<GladLiveApplicationDbContext>()
-				.AddUserManager<GladLiveOpenIddictManager>()
+				//.AddUserManager<GladLiveOpenIddictManager>()
 				.AddDefaultTokenProviders();
 
-			serviceCollection.AddOpenIddict<GladLiveApplicationUser, GladLiveApplicationDbContext>()
-				.EnableTokenEndpoint($"/api/AuthenticationRequest") // Enable the token endpoint (required to use the password flow).
-				.AllowPasswordFlow() // Allow client applications to use the grant_type=password flow.
-				.AllowRefreshTokenFlow()
-				.UseJsonWebTokens()
-				.AddSigningCertificate(new X509Certificate2($@"Certs/JWTCert.pfx"));
+			serviceCollection.AddDbContext<GladLiveApplicationDbContext>(options =>
+			{
+				DbOptions(options);
+				options.UseOpenIddict();
+			});
 
-			serviceCollection.AddScoped<OpenIddictUserManager<GladLiveApplicationUser>, GladLiveOpenIddictManager>();
+			// Configure Identity to use the same JWT claims as OpenIddict instead
+			// of the legacy WS-Federation claims it uses by default (ClaimTypes),
+			// which saves you from doing the mapping in your authorization controller.
+			/*serviceCollection.Configure<IdentityOptions>(options =>
+			{
+				options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
+				options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.Subject;
+				options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
+			});*/
+
+			serviceCollection.AddOpenIddict(options =>
+			{
+				// Register the Entity Framework stores.
+				options.AddEntityFrameworkCoreStores<GladLiveApplicationDbContext>();
+
+				// Register the ASP.NET Core MVC binder used by OpenIddict.
+				// Note: if you don't call this method, you won't be able to
+				// bind OpenIdConnectRequest or OpenIdConnectResponse parameters.
+				options.AddMvcBinders();
+
+				options.EnableTokenEndpoint($"/api/AuthenticationRequest"); // Enable the token endpoint (required to use the password flow).
+				options.AllowPasswordFlow(); // Allow client applications to use the grant_type=password flow.
+				options.AllowRefreshTokenFlow();
+				options.UseJsonWebTokens();
+				options.AddSigningCertificate(new X509Certificate2($@"Certs/JWTCert.pfx"));
+			});
 		}
 	}
 }
