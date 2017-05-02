@@ -8,9 +8,10 @@ using GladLive.AuthService.ASP;
 namespace MigrationsGenerator.Migrations
 {
     [DbContext(typeof(GladLiveApplicationDbContext))]
-    partial class GladLiveApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170502164058_ChangedToConcreteRole")]
+    partial class ChangedToConcreteRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1");

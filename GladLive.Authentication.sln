@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5B415E49-FF63-4C26-A943-747C0C582BCF}"
 EndProject
@@ -12,11 +12,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5D9A1A1C-5E90-4A4E-B25F-E712964586F2}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GladLive.Authentication.OAuth.Module", "src\GladLive.Authentication.OAuth.Module\GladLive.Authentication.OAuth.Module.xproj", "{4D653873-3330-4FF7-B55E-DC62606B000B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GladLive.Authentication.OAuth.Module", "src\GladLive.Authentication.OAuth.Module\GladLive.Authentication.OAuth.Module.csproj", "{518512CD-06D0-4845-8FC0-3F685510D544}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GladLive.Authentication.JWTAuthorization.Module", "src\GladLive.Authentication.JWTAuthorization.Module\GladLive.Authentication.JWTAuthorization.Module.xproj", "{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GladLive.Authentication.OAuth", "src\GladLive.Authentication.OAuth\GladLive.Authentication.OAuth.csproj", "{3F350997-6B4F-4CF4-B5DC-C5412676D4BE}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GladLive.Authentication.OAuth", "src\GladLive.Authentication.OAuth\GladLive.Authentication.OAuth.xproj", "{C95F9601-3372-43B4-AA88-1572805D5909}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GladLive.Authentication.JWTAuthorization.Module", "src\GladLive.Authentication.JWTAuthorization.Module\GladLive.Authentication.JWTAuthorization.Module.csproj", "{0E2C5268-7FC1-4AE1-9A48-925CDB2F753A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationsGenerator", "src\MigrationsGenerator\MigrationsGenerator.csproj", "{FF9AE022-043D-470F-A383-4EFDCEA977E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,25 +26,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4D653873-3330-4FF7-B55E-DC62606B000B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D653873-3330-4FF7-B55E-DC62606B000B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D653873-3330-4FF7-B55E-DC62606B000B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D653873-3330-4FF7-B55E-DC62606B000B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C95F9601-3372-43B4-AA88-1572805D5909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C95F9601-3372-43B4-AA88-1572805D5909}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C95F9601-3372-43B4-AA88-1572805D5909}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C95F9601-3372-43B4-AA88-1572805D5909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{518512CD-06D0-4845-8FC0-3F685510D544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{518512CD-06D0-4845-8FC0-3F685510D544}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{518512CD-06D0-4845-8FC0-3F685510D544}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{518512CD-06D0-4845-8FC0-3F685510D544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F350997-6B4F-4CF4-B5DC-C5412676D4BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F350997-6B4F-4CF4-B5DC-C5412676D4BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F350997-6B4F-4CF4-B5DC-C5412676D4BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F350997-6B4F-4CF4-B5DC-C5412676D4BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E2C5268-7FC1-4AE1-9A48-925CDB2F753A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E2C5268-7FC1-4AE1-9A48-925CDB2F753A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E2C5268-7FC1-4AE1-9A48-925CDB2F753A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E2C5268-7FC1-4AE1-9A48-925CDB2F753A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9AE022-043D-470F-A383-4EFDCEA977E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9AE022-043D-470F-A383-4EFDCEA977E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9AE022-043D-470F-A383-4EFDCEA977E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9AE022-043D-470F-A383-4EFDCEA977E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4D653873-3330-4FF7-B55E-DC62606B000B} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
-		{673DFF82-6E59-4FE0-AE9E-EEB645FE18CA} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
-		{C95F9601-3372-43B4-AA88-1572805D5909} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
+		{518512CD-06D0-4845-8FC0-3F685510D544} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
+		{3F350997-6B4F-4CF4-B5DC-C5412676D4BE} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
+		{0E2C5268-7FC1-4AE1-9A48-925CDB2F753A} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
+		{FF9AE022-043D-470F-A383-4EFDCEA977E6} = {5B415E49-FF63-4C26-A943-747C0C582BCF}
 	EndGlobalSection
 EndGlobal

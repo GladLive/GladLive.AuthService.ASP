@@ -17,7 +17,8 @@ namespace GladLive.Authentication.OAuth.Module
 
 		public override void Register()
 		{
-			//We actually don't need to do anything here yet
+			//Register the modules controllers.
+			mvcBuilderService.ConfigureApplicationPartManager(apm => apm.FeatureProviders.Add(new ControllerRegistry()));
 		}
 	}
 }

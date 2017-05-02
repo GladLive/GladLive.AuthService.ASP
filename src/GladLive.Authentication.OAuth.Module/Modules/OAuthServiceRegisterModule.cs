@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using OpenIddict.Core;
+using OpenIddict.Models;
+using OpenIddict.EntityFrameworkCore;
 
 namespace GladLive.Authentication.OAuth.Module
 {
@@ -21,32 +24,32 @@ namespace GladLive.Authentication.OAuth.Module
 
 		public override void Register()
 		{
-			serviceCollection.AddEntityFramework();
-
+			serviceCollection.AddAuthentication();
+	
 			//Below is the OpenIddict registration
 			//This is the recommended setup from the official Github: https://github.com/openiddict/openiddict-core
-			serviceCollection.AddIdentity<GladLiveApplicationUser, IdentityRole>()
-				.AddEntityFrameworkStores<GladLiveApplicationDbContext>()
+			serviceCollection.AddIdentity<GladLiveApplicationUser, GladLiveApplicationRole>()
+				.AddEntityFrameworkStores<GladLiveApplicationDbContext, int>()
 				//.AddUserManager<GladLiveOpenIddictManager>()
 				.AddDefaultTokenProviders();
 
 			serviceCollection.AddDbContext<GladLiveApplicationDbContext>(options =>
 			{
 				DbOptions(options);
-				options.UseOpenIddict();
+				options.UseOpenIddict<int>();
 			});
 
 			// Configure Identity to use the same JWT claims as OpenIddict instead
 			// of the legacy WS-Federation claims it uses by default (ClaimTypes),
 			// which saves you from doing the mapping in your authorization controller.
-			/*serviceCollection.Configure<IdentityOptions>(options =>
+			serviceCollection.Configure<IdentityOptions>(options =>
 			{
 				options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
 				options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.Subject;
 				options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
-			});*/
+			});
 
-			serviceCollection.AddOpenIddict(options =>
+			serviceCollection.AddOpenIddict<int>(options =>
 			{
 				// Register the Entity Framework stores.
 				options.AddEntityFrameworkCoreStores<GladLiveApplicationDbContext>();
