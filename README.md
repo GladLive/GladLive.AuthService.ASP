@@ -32,7 +32,7 @@ Also contains a test only account creation controller at {baseurl}/api/AccountCr
 
 (CD will be setup in the future; will not be available on NuGet)
 
-##Tests
+## Tests
 
 #### Linux/Mono - Unit Tests
 
@@ -42,6 +42,6 @@ TODO
 
 (Done locally)
 
-##Licensing
+## Licensing
 
 This project is licensed under the MIT license with the additional requirement of adding the GladLive splashscreen to your product.
