@@ -258,6 +258,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizationController.cs" />
+    <Compile Include="Controllers\JwtTestController.cs" />
     <Compile Include="Database\GladLiveApplicationDbContext .cs" />
     <Compile Include="Migrations\20170502161337_Initial.cs" />
     <Compile Include="Migrations\20170502161337_Initial.Designer.cs">

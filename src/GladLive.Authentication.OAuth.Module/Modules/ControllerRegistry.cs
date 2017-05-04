@@ -20,6 +20,7 @@ namespace GladLive.Authentication.OAuth
 			//We only have one controller which is the new OpenIddict authorization controller that you have to implement
 			feature.Controllers.Add(typeof(AuthorizationController).GetTypeInfo());
 			feature.Controllers.Add(typeof(AccountController).GetTypeInfo());
+			feature.Controllers.Add(typeof(JwtTestController).GetTypeInfo());
 		}
 	}
 }

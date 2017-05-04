@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Authentication;
 
 namespace GladLive.Authentication.JWT.Module.Modules
 {
@@ -31,7 +32,8 @@ namespace GladLive.Authentication.JWT.Module.Modules
 					ValidateIssuerSigningKey = false, //WARNING: This is bad. We should validate the signing key in the future
 					ValidateAudience = false,
 					ValidateIssuer = false,
-					ValidateLifetime = false //temporary until we come up with a solution
+					ValidateLifetime = false, //temporary until we come up with a solution
+					NameClaimType = "name", //we use the name identifier since we don't care about the literal username; just a GUID/UID/ID
 				},
 			};
 
