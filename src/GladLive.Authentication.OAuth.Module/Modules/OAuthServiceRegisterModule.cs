@@ -39,16 +39,6 @@ namespace GladLive.Authentication.OAuth.Module
 				options.UseOpenIddict<int>();
 			});
 
-			// Configure Identity to use the same JWT claims as OpenIddict instead
-			// of the legacy WS-Federation claims it uses by default (ClaimTypes),
-			// which saves you from doing the mapping in your authorization controller.
-			serviceCollection.Configure<IdentityOptions>(options =>
-			{
-				options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
-				options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.Subject;
-				options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
-			});
-
 			serviceCollection.AddOpenIddict<int>(options =>
 			{
 				// Register the Entity Framework stores.
@@ -64,6 +54,16 @@ namespace GladLive.Authentication.OAuth.Module
 				options.AllowRefreshTokenFlow();
 				options.UseJsonWebTokens();
 				options.AddSigningCertificate(new X509Certificate2($@"Certs/JWTCert.pfx"));
+			});
+
+			// Configure Identity to use the same JWT claims as OpenIddict instead
+			// of the legacy WS-Federation claims it uses by default (ClaimTypes),
+			// which saves you from doing the mapping in your authorization controller.
+			serviceCollection.Configure<IdentityOptions>(options =>
+			{
+				options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
+				options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.KeyId;
+				options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
 			});
 		}
 	}

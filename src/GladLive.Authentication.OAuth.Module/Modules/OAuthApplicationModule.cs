@@ -20,7 +20,6 @@ namespace GladLive.Authentication.OAuth.Module.Modules
 		{
 			applicationBuilder.UseIdentity();
 			applicationBuilder.UseOpenIddict();
-			applicationBuilder.UseMvcWithDefaultRoute();
 		}
 	}
 }
