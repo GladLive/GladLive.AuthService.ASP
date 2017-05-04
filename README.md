@@ -12,9 +12,8 @@ GladLive.Authentication is the module libraries for authentication/authorization
 ## Setup
 
 To use this project you'll first need a couple of things:
-  - Visual Studio 2015 RC 3
-  - ASP Core VS Tools
-  - Dotnet SDK
+  - Visual Studio 2017
+  - ASP Core Release
   - Add Nuget Feed https://www.myget.org/F/hellokitty/api/v2 in VS (Options -> NuGet -> Package Sources)
 
 ## How To Use
@@ -27,22 +26,22 @@ For example: username=TestUsername&password=Test123&grant_type=password
 
 The server will issue a JWT token in the response body or error information.
 
+Also contains a test only account creation controller at {baseurl}/api/AccountCreateRequest using query string parameters.
+
 ## Builds
 
 (CD will be setup in the future; will not be available on NuGet)
 
-##Tests
+## Tests
 
 #### Linux/Mono - Unit Tests
-||Debug x86|Debug x64|Release x86|Release x64|
-|:--:|:--:|:--:|:--:|:--:|:--:|
-|**master**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.Authentication.svg?branch=master)](https://travis-ci.org/GladLive/GladLive.Authentication) |
-|**dev**| N/A | N/A | N/A | [![Build Status](https://travis-ci.org/GladLive/GladLive.Authentication.svg?branch=dev)](https://travis-ci.org/GladLive/GladLive.Authentication)|
+
+TODO
 
 #### Windows - Unit Tests
 
 (Done locally)
 
-##Licensing
+## Licensing
 
 This project is licensed under the MIT license with the additional requirement of adding the GladLive splashscreen to your product.
