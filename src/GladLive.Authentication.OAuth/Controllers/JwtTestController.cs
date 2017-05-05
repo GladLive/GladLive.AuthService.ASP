@@ -17,7 +17,7 @@ namespace GladLive.Authentication.OAuth
 		public string Get()
 		{
 			if (this.User != null)
-				return $"User Authenticated: {this.User.Identity.IsAuthenticated} with Name: {User.Identity.Name} and Id: {User.GetClaim(@"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")} Claims: {User.Claims.Aggregate("", (s1, s2) => $"{s1} {s2}")}";
+				return $"User Authenticated: {this.User.Identity.IsAuthenticated} with Name: {User.Identity.Name} and Id: {User.Claims.FirstOrDefault(c => c.Type == @"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value} Claims: {User.Claims.Aggregate("", (s1, s2) => $"{s1} {s2}")}";
 			else
 				return "Unable to load user identity.";
 		}

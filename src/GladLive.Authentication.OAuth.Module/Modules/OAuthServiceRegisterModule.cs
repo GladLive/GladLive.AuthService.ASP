@@ -62,7 +62,7 @@ namespace GladLive.Authentication.OAuth.Module
 			serviceCollection.Configure<IdentityOptions>(options =>
 			{
 				options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
-				options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.KeyId;
+				options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.Subject;
 				options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
 			});
 		}

@@ -132,6 +132,9 @@ namespace GladLive.Authentication.OAuth
 			// Set the list of scopes granted to the client application.
 			ticket.SetScopes(new[]
 			{
+				OpenIdConnectConstants.Scopes.OpenId,
+				OpenIdConnectConstants.Scopes.Email,
+				OpenIdConnectConstants.Scopes.Profile,
 				OpenIddictConstants.Scopes.Roles
 			}.Intersect(request.GetScopes()));
 
